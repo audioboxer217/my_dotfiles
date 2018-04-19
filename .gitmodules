@@ -1,3 +1,6 @@
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/audioboxer217/my-vim-config.git
+[submodule ".tfenv"]
+	path = .tfenv
+	url = https://github.com/kamatama41/tfenv.git
