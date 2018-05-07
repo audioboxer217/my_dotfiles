@@ -1,5 +1,11 @@
 [user]
 	name = scott.eppler
 	email = scott.eppler@coda.global
+#[include]
+#  path = ~/default.gitconfig
+[includeIf "gitdir:~/GitHub/presidio/"]
+  path = ~/presidio.gitconfig
+[includeIf "gitdir:~/GitHub/technologent/"]
+  path = ~/technologent.gitconfig
 [core]
 	editor = vim
