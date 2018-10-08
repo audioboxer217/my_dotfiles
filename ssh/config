@@ -1,3 +1,7 @@
+Host *techlab.com
+  IdentityFile ~/Documents/Charter/lab_key
+  User  root
+
 Host *us-east-2.compute.amazonaws.com
   IdentityFile ~/.ssh/coda_scott_eppler.pem
 
@@ -6,7 +10,6 @@ Host *us-east-1.compute.amazonaws.com
 
 Host *.softlayer.com
   IdentityFile ~/.ssh/scott_SL
-
 
 Host *
   ServerAliveInterval 240
