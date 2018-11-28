@@ -14,7 +14,7 @@ ln -s /home/scott/dotfiles/ssh /home/scott/.ssh
 ln -s /home/scott/dotfiles/technologent.gitconfig /home/scott/technologent.gitconfig
 ln -s /home/scott/dotfiles/tfenv /home/scott/.tfenv
 ln -s /home/scott/dotfiles/tmux/tmux /home/scott/.tmux
-ln -s /home/scott/dotfiles/tmux/tmux.conf /home/scott/.tmux.comf
+ln -s /home/scott/dotfiles/tmux/tmux.conf /home/scott/.tmux.conf
 ln -s /home/scott/dotfiles/vim /home/scott/.vim
 
 ln -s /home/scott/.tfenv/bin/tfenv /usr/local/bin/tfenv
