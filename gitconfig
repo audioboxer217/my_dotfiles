@@ -3,9 +3,9 @@
 	email = scott.eppler@coda.global
 #[include]
 #  path = ~/default.gitconfig
-[includeIf "gitdir:~/GitHub/presidio/"]
+[includeIf "gitdir:~/Projects/presidio/"]
   path = ~/presidio.gitconfig
-[includeIf "gitdir:~/GitHub/technologent/"]
+[includeIf "gitdir:~/Projects/technologent/"]
   path = ~/technologent.gitconfig
 [core]
 	editor = vim
