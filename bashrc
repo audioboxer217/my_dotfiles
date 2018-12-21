@@ -56,11 +56,39 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# print the git branch name if in a git project
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+# set the input prompt symbol
+ARROW="❯"
+# define text formatting
+PROMPT_BOLD="$(tput bold)"
+PROMPT_UNDERLINE="$(tput smul)"
+PROMPT_RESET="$(tput sgr0)"
+
+# save each section prompt section in variable
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]🎄:\[\033[01;34m\]\W\[\033[00m\]\$ '
+  PROMPT_FG_GREEN="$(tput setaf 2)"
+  PROMPT_FG_CYAN="$(tput setaf 6)"
+  PROMPT_FG_YELLOW="$(tput setaf 3)"
+  PROMPT_FG_MAGENTA="$(tput setaf 5)"
+  PROMPT_SECTION_LOCATION="\[$PROMPT_BOLD$PROMPT_FG_GREEN\]\u@\h\[$PROMPT_RESET\]"
+  PROMPT_SECTION_DIRECTORY="\[$PROMPT_UNDERLINE$PROMPT_FG_CYAN\]\W\[$PROMPT_RESET\]"
+  PROMPT_SECTION_GIT_BRANCH="\[$PROMPT_FG_YELLOW\]\`parse_git_branch\`\[$PROMPT_RESET\]"
+  PROMPT_SECTION_ARROW="\[$PROMPT_FG_MAGENTA\]$ARROW\[$PROMPT_RESET\]"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h🎄:\W\$ '
+  PROMPT_SECTION_LOCATION="\[$PROMPT_BOLD\]\u@\h\[$PROMPT_RESET\]"
+  PROMPT_SECTION_DIRECTORY="\[$PROMPT_UNDERLINE\]\W\[$PROMPT_RESET\]"
+  PROMPT_SECTION_GIT_BRANCH="\`parse_git_branch\`"
+  PROMPT_SECTION_ARROW="$ARROW"
 fi
+
+# set the prompt string using each section variable
+PS1="
+🎄 $PROMPT_SECTION_LOCATION ❄️  $PROMPT_SECTION_DIRECTORY 🎁 $PROMPT_SECTION_GIT_BRANCH 🌟
+$PROMPT_SECTION_ARROW "
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -125,3 +153,5 @@ complete -C /usr/local/bin/terraform terraform
 complete -C /usr/local/bin/nomad nomad
 complete -C /usr/local/bin/vault vault
 complete -C /usr/local/bin/consul consul
+
+complete -C /usr/local/Cellar/tfenv/0.6.0/versions/0.11.11/terraform terraform
