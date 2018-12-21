@@ -58,7 +58,12 @@ fi
 
 # print the git branch name if in a git project
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+  branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  if [ -z "$branch" ]; then
+    echo ""
+  else
+    echo "[⌥  $branch]"
+  fi  
 }
 # set the input prompt symbol
 ARROW="❯"
@@ -86,7 +91,7 @@ fi
 
 # set the prompt string using each section variable
 PS1="
-🎄 $PROMPT_SECTION_LOCATION ❄️  $PROMPT_SECTION_DIRECTORY 🎁 $PROMPT_SECTION_GIT_BRANCH 🌟
+💻 $PROMPT_SECTION_LOCATION 📁 $PROMPT_SECTION_DIRECTORY $PROMPT_SECTION_GIT_BRANCH 
 $PROMPT_SECTION_ARROW "
 
 unset color_prompt force_color_prompt
