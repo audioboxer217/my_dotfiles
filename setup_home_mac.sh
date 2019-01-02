@@ -8,6 +8,7 @@ mv /Users/scott/.bashrc /Users/scott/.bashrc_old
 
 ln -s /Users/scott/dotfiles/ansible.cfg /Users/scott/.ansible.cfg
 ln -s /Users/scott/dotfiles/bashrc /Users/scott/.bashrc
+ln -s /Users/scott/dotfiles/bash_aliases /Users/scott/.bash_aliases
 ln -s /Users/scott/dotfiles/gitconfig /Users/scott/.gitconfig
 ln -s /Users/scott/dotfiles/presidio.gitconfig /Users/scott/presidio.gitconfig
 ln -s /Users/scott/dotfiles/ssh /Users/scott/.ssh
