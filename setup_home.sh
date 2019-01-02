@@ -10,7 +10,7 @@ if [ $os == "Linux" ]; then
   apt-get install -y $tools
 
   #Manual install of tfenv
-  git clone https://github.com/kamatama41/tfenv.git $home_loc/.tfenv
+  sudo -u scott git clone https://github.com/kamatama41/tfenv.git $home_loc/.tfenv
   ln -sf $home_loc/.tfenv/bin/tfenv /usr/local/bin/tfenv
   ln -sf $home_loc/.tfenv/bin/terraform /usr/local/bin/terraform
   
