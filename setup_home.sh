@@ -1,24 +1,41 @@
 #!/bin/bash
 
-apt-get install -y vim tmux
+os="$(uname -a | awk '{printf $1}')"
+tools=" vim \
+        tmux \
+        ansible"
+
+if [ $os == "Linux" ]; then
+  home_loc='/home/scott'
+  apt-get install -y $tools
+
+  #Manual install of tfenv
+  git clone https://github.com/kamatama41/tfenv.git $home_loc/.tfenv
+  ln -sf $home_loc/.tfenv/bin/tfenv /usr/local/bin/tfenv
+  ln -sf $home_loc/.tfenv/bin/terraform /usr/local/bin/terraform
+  
+elif [ $os == "Darwin" ]; then
+  home_loc='/Users/scott'
+  brew install $tools tfenv
+
+else
+  echo "$os not supported"
+
+fi
 
 git submodule update --init --recursive
 
-mv /home/scott/.bashrc /home/scott/.bashrc_old
+mv $home_loc/.bashrc $home_loc/.bashrc_old
 
-ln -s /home/scott/dotfiles/ansible.cfg /home/scott/.ansible.cfg
-ln -s /home/scott/dotfiles/bashrc /home/scott/.bashrc
-ln -s /home/scott/dotfiles/bash_aliases /home/scott/.bash_aliases
-ln -s /home/scott/dotfiles/gitconfig /home/scott/.gitconfig
-ln -s /home/scott/dotfiles/presidio.gitconfig /home/scott/presidio.gitconfig
-ln -s /home/scott/dotfiles/ssh /home/scott/.ssh
-ln -s /home/scott/dotfiles/technologent.gitconfig /home/scott/technologent.gitconfig
-ln -s /home/scott/dotfiles/tfenv /home/scott/.tfenv
-ln -s /home/scott/dotfiles/tmux/tmux /home/scott/.tmux
-ln -s /home/scott/dotfiles/tmux/tmux.conf /home/scott/.tmux.conf
-ln -s /home/scott/dotfiles/vim /home/scott/.vim
+ln -sf $(pwd)/ansible.cfg $home_loc/.ansible.cfg
+ln -sf $(pwd)/bashrc $home_loc/.bashrc
+ln -sf $(pwd)/bash_aliases $home_loc/.bash_aliases
+ln -sf $(pwd)/gitconfig $home_loc/.gitconfig
+ln -sf $(pwd)/presidio.gitconfig $home_loc/presidio.gitconfig
+ln -sf $(pwd)/technologent.gitconfig $home_loc/technologent.gitconfig
+ln -sf $(pwd)/ssh $home_loc/.ssh
+ln -sf $(pwd)/tmux/tmux $home_loc/.tmux
+ln -sf $(pwd)/tmux/tmux.conf $home_loc/.tmux.conf
+ln -sf $(pwd)/vim $home_loc/.vim
 
-ln -s /home/scott/.tfenv/bin/tfenv /usr/local/bin/tfenv
 tfenv install latest
-
-ln -s /home/scott/.tfenv/bin/terraform /usr/local/bin/terraform
