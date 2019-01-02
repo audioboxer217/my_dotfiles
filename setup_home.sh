@@ -38,4 +38,4 @@ ln -sf $(pwd)/tmux/tmux $home_loc/.tmux
 ln -sf $(pwd)/tmux/tmux.conf $home_loc/.tmux.conf
 ln -sf $(pwd)/vim $home_loc/.vim
 
-tfenv install latest
+tfenv install 0.11.11 #latest
