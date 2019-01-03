@@ -33,9 +33,9 @@ ln -sf $(pwd)/bash_aliases $home_loc/.bash_aliases
 ln -sf $(pwd)/gitconfig $home_loc/.gitconfig
 ln -sf $(pwd)/presidio.gitconfig $home_loc/presidio.gitconfig
 ln -sf $(pwd)/technologent.gitconfig $home_loc/technologent.gitconfig
-ln -sf $(pwd)/ssh $home_loc/.ssh
-ln -sf $(pwd)/tmux/tmux $home_loc/.tmux
+ln -snf $(pwd)/ssh $home_loc/.ssh
+ln -snf $(pwd)/tmux/tmux $home_loc/.tmux
 ln -sf $(pwd)/tmux/tmux.conf $home_loc/.tmux.conf
-ln -sf $(pwd)/vim $home_loc/.vim
+ln -snf $(pwd)/vim $home_loc/.vim
 
 tfenv install 0.11.11 #latest
