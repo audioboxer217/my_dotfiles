@@ -17,4 +17,5 @@ USER root
 RUN ["bash", "setup_home.sh"]
 
 USER scott
+WORKDIR /home/scott
 CMD ["bash"]
