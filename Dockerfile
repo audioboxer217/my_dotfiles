@@ -4,7 +4,7 @@
 
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y git curl
+RUN apt-get update && apt-get install -y git curl sudo zip
 
 RUN useradd -ms /bin/bash scott
 USER scott
