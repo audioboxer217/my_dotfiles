@@ -10,7 +10,7 @@ RUN useradd -ms /bin/bash scott
 USER scott
 WORKDIR /home/scott
 
-COPY . dotfiles
+COPY --chown=scott . dotfiles
 WORKDIR /home/scott/dotfiles
 
 USER root
