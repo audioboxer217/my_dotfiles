@@ -38,4 +38,6 @@ ln -snf $(pwd)/tmux/tmux $home_loc/.tmux
 ln -sf $(pwd)/tmux/tmux.conf $home_loc/.tmux.conf
 ln -snf $(pwd)/vim $home_loc/.vim
 
+mkdir -p $home_loc/Projects/{presidio,technologent}
+
 tfenv install 0.11.11 #latest
