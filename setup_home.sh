@@ -37,6 +37,7 @@ ln -snf $(pwd)/ssh $home_loc/.ssh
 ln -snf $(pwd)/tmux/tmux $home_loc/.tmux
 ln -sf $(pwd)/tmux/tmux.conf $home_loc/.tmux.conf
 ln -snf $(pwd)/vim $home_loc/.vim
+ln -sf $(pwd)/wtf-config.yml $home_loc/.config/wtf/config.yml
 
 mkdir -p $home_loc/Projects/{presidio,technologent}
 
