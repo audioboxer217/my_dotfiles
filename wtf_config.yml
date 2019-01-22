@@ -5,8 +5,8 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [40, 40, 40]
-    rows: [20, 13, 10, 7]
+    columns: [25, 25, 25, 25, 25, 25, 25, 25, 25]
+    rows: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
   refreshInterval: 1
   mods:
     clocks:
@@ -20,10 +20,10 @@ wtf:
         UTC: "etc/UTC"
         India: "Asia/Kolkata"
       position:
-        top: 2
-        left: 2
+        top: 0
+        left: 4
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 15
       sort: "chronological"
     git:
@@ -34,8 +34,8 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 1
-        width: 2
+        height: 4
+        width: 4
       refreshInterval: 8
       repositories:
       - "/Users/scott/dotfiles"
@@ -46,10 +46,10 @@ wtf:
       enabled: true
       enableStatus: true
       position:
-        top: 1
+        top: 4
         left: 0
-        height: 1
-        width: 2
+        height: 4
+        width: 4
       refreshInterval: 300
       repositories:
         pennsignals-azure: "pennsignals"
@@ -73,10 +73,10 @@ wtf:
       eventCount: 12
       multiCalendar: true
       position:
-        top: 0
-        left: 2
-        height: 2
-        width: 1
+        top: 1
+        left: 4
+        height: 7
+        width: 2
       refreshInterval: 300
       secretFile: "/keybase/private/kseppler/gcal_creds.json"
       showDeclined: true
@@ -84,27 +84,27 @@ wtf:
     status:
       enabled: true
       position:
-        top: 3
+        top: 8
         left: 0
-        height: 1
-        width: 3
+        height: 2
+        width: 2
       refreshInterval: 1
     power:
       enabled: true
       position:
-        top: 2
-        left: 0 
-        height: 1
-        width: 1
+        top: 8
+        left: 2
+        height: 2
+        width: 2
       refreshInterval: 15
     prettyweather:
       enabled: true
       city: "owasso"
       position:
-        top: 2
-        left: 1
-        height: 1
-        width: 1
+        top: 8
+        left: 4
+        height: 2
+        width: 2
       refreshInterval: 300
       unit: "c"
       view: 0
