@@ -1,0 +1,99 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [40, 40, 40]
+    rows: [20, 13, 7]
+  refreshInterval: 1
+  mods:
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        Home: "America/Chicago"
+        UTC: "etc/UTC"
+        India: "Asia/Kolkata"
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "chronological"
+    git:
+      commitCount: 5
+      commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
+      dateFormat: "%H:%M %d %b %y"
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 8
+      repositories:
+      - "/Users/scott/dotfiles"
+      - "/Users/scott/Projects/presidio/pennsignals-azure"
+    github:
+      apiKey: "a06ed2206dcc14e42f64ca147cf652916961cf97"
+      baseURL: ""
+      enabled: true
+      enableStatus: true
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 300
+      repositories:
+        pennsignals-azure: "pennsignals"
+      uploadURL: ""
+      username: "audioboxer217"
+    gcal:
+      colors:
+        title: "red"
+        description: "lightblue"
+        highlights:
+        - ['1on1|1\/11', 'green']
+        - ['apple|google|aws', 'blue']
+        - ['interview|meet', 'magenta']
+        - ['lunch', 'yellow']
+        past: "gray"
+      conflictIcon: "🚨"
+      currentIcon: "💥"
+      displayResponseStatus: true
+      email: "audioboxer217@gmail.com"
+      enabled: true
+      eventCount: 12
+      multiCalendar: true
+      position:
+        top: 0
+        left: 2
+        height: 2
+        width: 1
+      refreshInterval: 300
+      secretFile: "/keybase/private/kseppler/gcal_creds.json"
+      showDeclined: true
+      withLocation: true  
+    status:
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 1
+    power:
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 15
