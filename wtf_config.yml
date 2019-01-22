@@ -6,7 +6,7 @@ wtf:
       normal: gray
   grid:
     columns: [40, 40, 40]
-    rows: [20, 13, 7]
+    rows: [20, 13, 10, 7]
   refreshInterval: 1
   mods:
     clocks:
@@ -41,7 +41,7 @@ wtf:
       - "/Users/scott/dotfiles"
       - "/Users/scott/Projects/presidio/pennsignals-azure"
     github:
-      apiKey: "a06ed2206dcc14e42f64ca147cf652916961cf97"
+      apiKey: "$(cat git_api.key)"
       baseURL: ""
       enabled: true
       enableStatus: true
@@ -84,16 +84,28 @@ wtf:
     status:
       enabled: true
       position:
-        top: 2
+        top: 3
         left: 0
         height: 1
-        width: 1
+        width: 3
       refreshInterval: 1
     power:
       enabled: true
       position:
         top: 2
-        left: 1
+        left: 0 
         height: 1
         width: 1
       refreshInterval: 15
+    prettyweather:
+      enabled: true
+      city: "owasso"
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 300
+      unit: "c"
+      view: 0
+      language: "en"
