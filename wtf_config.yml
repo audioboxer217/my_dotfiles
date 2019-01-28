@@ -27,6 +27,7 @@ wtf:
       refreshInterval: 15
       sort: "chronological"
     git:
+      focusChar: 1
       commitCount: 5
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
       dateFormat: "%H:%M %d %b %y"
@@ -40,22 +41,19 @@ wtf:
       repositories:
       - "/Users/scott/dotfiles"
       - "/Users/scott/Projects/presidio/pennsignals-azure"
-    github:
-      apiKey: "$(cat git_api.key)"
-      baseURL: ""
+    hackernews:
+      focusChar: 2
       enabled: true
-      enableStatus: true
+      storyType: top
+      numberOfStories: 15
       position:
         top: 4
         left: 0
         height: 4
         width: 4
       refreshInterval: 300
-      repositories:
-        pennsignals-azure: "pennsignals"
-      uploadURL: ""
-      username: "audioboxer217"
     gcal:
+      focusChar: 3
       colors:
         title: "red"
         description: "lightblue"
@@ -81,16 +79,6 @@ wtf:
       secretFile: "/keybase/private/kseppler/gcal_creds.json"
       showDeclined: true
       withLocation: true  
-    hackernews:
-      enabled: true
-      numberOfStories: 20
-      position:
-        top: 0
-        left: 6
-        height: 5
-        width: 4
-      storyType: top
-      refreshInterval: 900  
     status:
       enabled: true
       position:
