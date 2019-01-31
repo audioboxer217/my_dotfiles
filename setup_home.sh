@@ -81,7 +81,7 @@ ln -snf $dir/ssh $home_loc/.ssh
 ln -snf $dir/tmux/tmux $home_loc/.tmux
 ln -sf $dir/tmux/tmux.conf $home_loc/.tmux.conf
 ln -snf $dir/vim $home_loc/.vim
-ln -sf $dir/wtf-config.yml $home_loc/.config/wtf/config.yml
+ln -sf $dir/wtf_config.yml $home_loc/.config/wtf/config.yml
 ln -sf $dir/taskrc $home_loc/.taskrc
 
 mkdir -p $home_loc/Projects/{presidio,technologent}
