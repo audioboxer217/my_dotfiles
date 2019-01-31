@@ -11,6 +11,7 @@ tools_brew="bat \
             exa \
             prettyping \
             fzf \
+            wtf \
             tfenv"
 
 if [ $os == "Linux" ]; then
@@ -42,6 +43,12 @@ if [ $os == "Linux" ]; then
   cd $home_loc
   sudo -u scott git clone --depth 1 https://github.com/junegunn/fzf.git $home_loc/.fzf
   sudo -u scott $home_loc/.fzf/install --all
+
+  #Manual install of wtf
+  wtf_ver=0.4.0
+  wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_linux_386.tar.gz
+  tar -xzf wtf_$wtf_ver\_linux_386.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_linux_386/wtf
+  rm wtf_$wtf_ver\_linux_386.tar.gz
 
   #Manual install of tfenv
   sudo -u scott git clone https://github.com/kamatama41/tfenv.git $home_loc/.tfenv
