@@ -63,8 +63,8 @@ wtf:
         - ['interview|meet', 'magenta']
         - ['lunch', 'yellow']
         past: "gray"
-      conflictIcon: "🚨"
-      currentIcon: "💥"
+      conflictIcon: "❗️"
+      currentIcon: "⏳"
       displayResponseStatus: true
       email: "audioboxer217@gmail.com"
       enabled: true
