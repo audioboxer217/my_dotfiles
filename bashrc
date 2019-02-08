@@ -53,13 +53,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Default Prompt Theme
-# set the input prompt symbol
-ARROW="❯"
-GIT_ICON="⌥ "
-LOC_ICON="💻"
-DIR_ICON="📁"
-
 # define text formatting
 PROMPT_BOLD="$(tput bold)"
 PROMPT_UNDERLINE="$(tput smul)"
@@ -75,28 +68,20 @@ parse_git_branch() {
   fi
 }
 
-# prompt sections
-if [ "$color_prompt" = yes ]; then
-  PROMPT_FG_GREEN="$(tput setaf 2)"
-  PROMPT_FG_CYAN="$(tput setaf 6)"
-  PROMPT_FG_YELLOW="$(tput setaf 3)"
-  PROMPT_FG_MAGENTA="$(tput setaf 5)"
-  PROMPT_SECTION_LOCATION="$LOC_ICON \[$PROMPT_BOLD$PROMPT_FG_GREEN\]\u@\h\[$PROMPT_RESET\]"
-  PROMPT_SECTION_DIRECTORY="$DIR_ICON \[$PROMPT_UNDERLINE$PROMPT_FG_CYAN\]\W\[$PROMPT_RESET\]"
-  PROMPT_SECTION_GIT_BRANCH="\[$PROMPT_FG_YELLOW\]\`parse_git_branch\`\[$PROMPT_RESET\]"
-  PROMPT_SECTION_ARROW="\[$PROMPT_FG_MAGENTA\]$ARROW\[$PROMPT_RESET\]"
-else
-  PROMPT_SECTION_LOCATION="$LOC_ICON \[$PROMPT_BOLD\]\u@\h\[$PROMPT_RESET\]"
-  PROMPT_SECTION_DIRECTORY="$DIR_ICON \[$PROMPT_UNDERLINE\]\W\[$PROMPT_RESET\]"
-  PROMPT_SECTION_GIT_BRANCH="\`parse_git_branch\`"
-  PROMPT_SECTION_ARROW="$ARROW"
+# check for custom theme
+if [ -f ~/.bash_prompt_theme ]; then
+  CUSTOM_PROMPT_THEME=$(cat ~/.bash_prompt_theme)
 fi
 
-# Custom theme (if enabled)
-if ! [ -z $CUSTOM_PROMPT_THEME ]; then
-  if [ -f ~/.bash_themes/$CUSTOM_PROMPT_THEME ]; then
-      . ~/.bash_themes/$CUSTOM_PROMPT_THEME
-  fi
+# custom theme (if enabled)
+if [ -f ~/.bash_themes/$CUSTOM_PROMPT_THEME ]; then
+  . ~/.bash_themes/$CUSTOM_PROMPT_THEME
+else
+  # Default theme
+  PROMPT_SECTION_LOCATION="\[$PROMPT_BOLD\]\u@\h\[$PROMPT_RESET\]"
+  PROMPT_SECTION_DIRECTORY="\[$PROMPT_UNDERLINE\]\W\[$PROMPT_RESET\]"
+  PROMPT_SECTION_GIT_BRANCH="\`parse_git_branch\`"
+  PROMPT_SECTION_ARROW=">"
 fi
 
 # set the prompt string using each section variable

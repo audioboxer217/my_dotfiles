@@ -4,11 +4,12 @@ weather() { curl wttr.in/$1; }
 
 prompt_theme() {
   if [ -f ~/.bash_themes/$1 ]; then
-    export CUSTOM_PROMPT_THEME=$1
+    echo $1 > ~/.bash_prompt_theme
     source ~/.bashrc
   else
     if [ $1 == 'default' ]; then
       unset CUSTOM_PROMPT_THEME
+      rm ~/.bash_prompt_theme
       source ~/.bashrc
     else
       echo ""
