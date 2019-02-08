@@ -2,6 +2,21 @@ news() { curl getnews.tech/$1; }
 
 weather() { curl wttr.in/$1; }
 
+prompt_theme() {
+  if [ -f ~/.bash_themes/$1 ]; then
+    export CUSTOM_PROMPT_THEME=$1
+    source ~/.bashrc
+  else
+    if [ $1 == 'default' ]; then
+      unset CUSTOM_PROMPT_THEME
+      source ~/.bashrc
+    else
+      echo ""
+      echo "No theme named '$1'"
+    fi
+  fi
+ }
+
 alias cat='bat'
 
 alias ls='exa'
