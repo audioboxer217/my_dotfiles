@@ -2,7 +2,7 @@
 ARROW="❄️ "
 GIT_ICON="⭐️"
 LOC_ICON="🎄"
-DIR_ICON="🎅"
+DIR_ICON="⛄️"
 
 # prompt sections
 if [ "$color_prompt" = yes ]; then
