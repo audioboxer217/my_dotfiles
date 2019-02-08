@@ -74,6 +74,7 @@ mv $home_loc/.bashrc $home_loc/.bashrc_old
 ln -sf $dir/ansible.cfg $home_loc/.ansible.cfg
 ln -sf $dir/bashrc $home_loc/.bashrc
 ln -sf $dir/bash_aliases $home_loc/.bash_aliases
+ln -snf $dir/bash_themes $home_loc/.bash_themes
 ln -sf $dir/gitconfig $home_loc/.gitconfig
 ln -sf $dir/presidio.gitconfig $home_loc/presidio.gitconfig
 ln -sf $dir/technologent.gitconfig $home_loc/technologent.gitconfig
