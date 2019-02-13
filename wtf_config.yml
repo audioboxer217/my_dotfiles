@@ -23,6 +23,8 @@ wtf:
       refreshInterval: 8
       repositories:
       - "/Users/scott/dotfiles"
+      - "/Users/scott/dotfiles/vim"
+      - "/Users/scott/dotfiles/tmux"
       - "/Users/scott/Projects/presidio/pennsignals-azure"
     hackernews:
       focusChar: 2
@@ -61,7 +63,7 @@ wtf:
       refreshInterval: 300
       secretFile: "/keybase/private/kseppler/gcal_creds.json"
       showDeclined: true
-      withLocation: true  
+      withLocation: true
     status:
       enabled: true
       position:
