@@ -2,6 +2,7 @@
 
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 os="$(uname -a | awk '{printf $1}')"
+wtf_ver=0.5.0
 tools_all="vim \
            tmux \
            ansible \
@@ -11,7 +12,6 @@ tools_brew="bat \
             exa \
             prettyping \
             fzf \
-            wtf \
             tfenv"
 
 if [ $os == "Linux" ]; then
@@ -45,7 +45,6 @@ if [ $os == "Linux" ]; then
   sudo -u scott $home_loc/.fzf/install --all
 
   #Manual install of wtf
-  wtf_ver=0.5.0
   wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_linux_386.tar.gz
   tar -xzf wtf_$wtf_ver\_linux_386.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_linux_386/wtf
   rm wtf_$wtf_ver\_linux_386.tar.gz
@@ -58,6 +57,11 @@ if [ $os == "Linux" ]; then
 elif [ $os == "Darwin" ]; then
   home_loc='/Users/scott'
   brew install $tools_all $tools_brew
+
+  #Manual install of wtf
+  wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_darwin_amd64.tar.gz
+  tar -xzf wtf_$wtf_ver\_darwin_amd64.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_darwin_amd64/wtf
+  rm wtf_$wtf_ver\_darwin_amd64.tar.gz
 
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
