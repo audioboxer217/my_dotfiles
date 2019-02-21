@@ -12,6 +12,7 @@ tools_brew="bat \
             exa \
             prettyping \
             fzf \
+            kube-ps1 \
             tfenv"
 
 if [ $os == "Linux" ]; then
@@ -43,6 +44,13 @@ if [ $os == "Linux" ]; then
   cd $home_loc
   sudo -u scott git clone --depth 1 https://github.com/junegunn/fzf.git $home_loc/.fzf
   sudo -u scott $home_loc/.fzf/install --all
+
+  #Manual install of kube-ps1
+  kube_ps1_ver=0.7.0
+  wget https://github.com/jonmosco/kube-ps1/archive/v$kube_ps1_ver.tar.gz
+  mkdir -p /usr/local/opt/kube-ps1/share
+  tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
+  rm v$kube_ps1_ver.tar.gz
 
   #Manual install of wtf
   wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_linux_386.tar.gz

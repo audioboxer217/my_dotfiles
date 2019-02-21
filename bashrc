@@ -58,6 +58,9 @@ PROMPT_BOLD="$(tput bold)"
 PROMPT_UNDERLINE="$(tput smul)"
 PROMPT_RESET="$(tput sgr0)"
 
+# kube-ps1.sh
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+
 # print the git branch name if in a git project
 parse_git_branch() {
   branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -87,7 +90,7 @@ fi
 # set the prompt string using each section variable
 PS1="
 $PROMPT_SECTION_LOCATION $PROMPT_SECTION_DIRECTORY $PROMPT_SECTION_GIT_BRANCH
-$PROMPT_SECTION_ARROW "
+\`kube_ps1\`$PROMPT_SECTION_ARROW "
 
 unset color_prompt force_color_prompt
 
