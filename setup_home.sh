@@ -45,7 +45,7 @@ if [ $os == "Linux" ]; then
   sudo -u scott $home_loc/.fzf/install --all
 
   #Manual install of wtf
-  wtf_ver=0.4.0
+  wtf_ver=0.5.0
   wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_linux_386.tar.gz
   tar -xzf wtf_$wtf_ver\_linux_386.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_linux_386/wtf
   rm wtf_$wtf_ver\_linux_386.tar.gz
