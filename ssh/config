@@ -23,3 +23,9 @@ Host *
   IdentityFile ~/.ssh/id_rsa
   IdentityFile ~/.ssh/coda_rsa
   IdentityFile ~/.ssh/terraform
+
+Host hashbang
+  HostName da1.hashbang.sh
+  IdentitiesOnly yes
+  User audioboxer217
+  IdentityFile /Users/scott/.ssh/hashbang
