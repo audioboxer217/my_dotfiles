@@ -16,7 +16,6 @@ tools_brew="bat \
             tfenv"
 
 if [ $os == "Linux" ]; then
-  home_loc='/home/scott'
   apt-get install -y $tools_all
 
   #Manual install of bat
@@ -41,9 +40,9 @@ if [ $os == "Linux" ]; then
   rm v$prettyping_ver.zip
 
   #Manual install of fzf
-  cd $home_loc
-  sudo -u scott git clone --depth 1 https://github.com/junegunn/fzf.git $home_loc/.fzf
-  sudo -u scott $home_loc/.fzf/install --all
+  cd $HOME
+  sudo -u scott git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  sudo -u scott $HOME/.fzf/install --all
 
   #Manual install of kube-ps1
   kube_ps1_ver=0.7.0
@@ -58,12 +57,11 @@ if [ $os == "Linux" ]; then
   rm wtf_$wtf_ver\_linux_386.tar.gz
 
   #Manual install of tfenv
-  sudo -u scott git clone https://github.com/kamatama41/tfenv.git $home_loc/.tfenv
-  ln -sf $home_loc/.tfenv/bin/tfenv /usr/local/bin/tfenv
-  ln -sf $home_loc/.tfenv/bin/terraform /usr/local/bin/terraform
+  sudo -u scott git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
+  ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
+  ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
 
 elif [ $os == "Darwin" ]; then
-  home_loc='/Users/scott'
   brew install $tools_all $tools_brew
 
   #Manual install of wtf
@@ -81,22 +79,22 @@ fi
 
 git submodule update --init --recursive
 
-mv $home_loc/.bashrc $home_loc/.bashrc_old
+mv $HOME/.bashrc $HOME/.bashrc_old
 
-ln -sf $dir/ansible.cfg $home_loc/.ansible.cfg
-ln -sf $dir/bashrc $home_loc/.bashrc
-ln -sf $dir/bash_aliases $home_loc/.bash_aliases
-ln -snf $dir/bash_themes $home_loc/.bash_themes
-ln -sf $dir/gitconfig $home_loc/.gitconfig
-ln -sf $dir/presidio.gitconfig $home_loc/presidio.gitconfig
-ln -sf $dir/technologent.gitconfig $home_loc/technologent.gitconfig
-ln -snf $dir/ssh $home_loc/.ssh
-ln -snf $dir/tmux/tmux $home_loc/.tmux
-ln -sf $dir/tmux/tmux.conf $home_loc/.tmux.conf
-ln -snf $dir/vim $home_loc/.vim
-ln -sf $dir/wtf_config.yml $home_loc/.config/wtf/config.yml
-ln -sf $dir/taskrc $home_loc/.taskrc
+ln -sf $dir/ansible.cfg $HOME/.ansible.cfg
+ln -sf $dir/bashrc $HOME/.bashrc
+ln -sf $dir/bash_aliases $HOME/.bash_aliases
+ln -snf $dir/bash_themes $HOME/.bash_themes
+ln -sf $dir/gitconfig $HOME/.gitconfig
+ln -sf $dir/presidio.gitconfig $HOME/presidio.gitconfig
+ln -sf $dir/technologent.gitconfig $HOME/technologent.gitconfig
+ln -snf $dir/ssh $HOME/.ssh
+ln -snf $dir/tmux/tmux $HOME/.tmux
+ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
+ln -snf $dir/vim $HOME/.vim
+ln -sf $dir/wtf_config.yml $HOME/.config/wtf/config.yml
+ln -sf $dir/taskrc $HOME/.taskrc
 
-mkdir -p $home_loc/Projects/{presidio,technologent}
+mkdir -p $HOME/Projects/{presidio,technologent}
 
 tfenv install 0.11.11 #latest
