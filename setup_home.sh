@@ -20,7 +20,7 @@ if [ $os == "Linux" ]; then
   apt-get install -y $tools_all
 
   #Manual install of bat
-  bat_ver=0.9.0
+  bat_ver=0.10.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
   dpkg -i bat_$bat_ver\_amd64.deb
   rm bat_$bat_ver\_amd64.deb

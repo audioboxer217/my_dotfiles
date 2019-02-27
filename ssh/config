@@ -15,6 +15,10 @@ Host *.eastus.cloudapp.azure.com
 Host *.softlayer.com
   IdentityFile ~/.ssh/scott_SL
 
+Host *.mylabserver.com
+  User cloud_user
+  IdentityFile ~/.ssh/hashbang
+
 Host raspberrypi
   User pi
 
