@@ -1,5 +1,6 @@
 #!/bin/bash
 
+username="$(whoami)"
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 os="$(uname -a | awk '{printf $1}')"
 wtf_ver=0.5.0
@@ -41,8 +42,8 @@ if [ $os == "Linux" ]; then
 
   #Manual install of fzf
   cd $HOME
-  sudo -u scott git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  sudo -u scott $HOME/.fzf/install --all
+  sudo -u $username git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  sudo -u $username $HOME/.fzf/install --all
 
   #Manual install of kube-ps1
   kube_ps1_ver=0.7.0
@@ -57,7 +58,7 @@ if [ $os == "Linux" ]; then
   rm wtf_$wtf_ver\_linux_386.tar.gz
 
   #Manual install of tfenv
-  sudo -u scott git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
+  sudo -u $username git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
   ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
   ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
 
