@@ -7,5 +7,5 @@ ln -snf $(pwd)/tmux/tmux $HOME/.tmux
 ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf
 ln -snf $(pwd)/vim $HOME/.vim
 
-source <(kubectl completion bash) >> $HOME/.bashrc
+echo 'source <(kubectl completion bash)' >> $HOME/.bashrc
 source $HOME/.bashrc
