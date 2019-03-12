@@ -31,5 +31,6 @@ include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-256.theme
 
 color.project.Mitre=color11
 color.project.SpectrumHealth=color9
+color.project.Vertex=rgb410
 context.Presidio=+Presidio
 context.Coda=+Coda
