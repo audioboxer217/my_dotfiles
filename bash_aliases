@@ -1,6 +1,11 @@
 news() { curl getnews.tech/$1; }
 
-weather() { curl wttr.in/$1; }
+weather()
+{
+    local request="wttr.in/${1-Owasso}"
+    [ "$COLUMNS" -lt 125 ] && request+='?n'
+    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
 
 prompt_theme() {
   if [ -f ~/.bash_themes/$1 ]; then
