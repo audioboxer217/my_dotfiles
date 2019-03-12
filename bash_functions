@@ -1,3 +1,28 @@
+news() { curl getnews.tech/$1; }
+
+weather()
+{
+    local request="wttr.in/${1-Owasso}"
+    [ "$COLUMNS" -lt 125 ] && request+='?n'
+    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
+
+prompt_theme() {
+  if [ -f ~/.bash_themes/$1 ]; then
+    echo $1 > ~/.bash_prompt_theme
+    source ~/.bashrc
+  else
+    if [ $1 == 'default' ]; then
+      unset CUSTOM_PROMPT_THEME
+      rm ~/.bash_prompt_theme
+      source ~/.bashrc
+    else
+      echo ""
+      echo "No theme named '$1'"
+    fi
+  fi
+ }
+
 get_batt_info() {
   local red=$(tput setaf 1)
   local green=$(tput setaf 2)
