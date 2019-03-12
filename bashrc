@@ -103,6 +103,10 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Custom Functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
