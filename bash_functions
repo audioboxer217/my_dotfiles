@@ -35,7 +35,7 @@ get_batt_info() {
   local batt_level=$(echo "$batt_stats" | awk '{print substr($3,1,length($3)-2)}')
   local batt_state=$(echo "$batt_stats" | awk '{print substr($4,1,length($4)-1)}')
   local  batt_time=$(echo "$batt_stats" | awk '{print $5}')
-  if [ $batt_state == "charging" ]; then
+  if [ $batt_state == "charging" ] || [ $batt_state == "charged" ]; then
     batt_state_color=$green
   else
     batt_state_color=$yellow
@@ -48,12 +48,14 @@ get_batt_info() {
     batt_level_color=$red
   fi
   if [ $batt_time == "(no" ]; then
-    batt_time=∞
+    batt_time="calculating"
   fi
 
   echo "   Source: $batt_source"
   echo ""
   echo "   Charge: $batt_level_color$batt_level%$reset"
-  echo "Remaining: $batt_time"
+  if [ $batt_time != "0:00" ]; then
+    echo "Remaining: $batt_time"
+  fi
   echo "    State: $batt_state_color$batt_state$reset"
 }
