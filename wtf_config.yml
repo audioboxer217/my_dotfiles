@@ -26,6 +26,7 @@ wtf:
       - "/Users/scott/dotfiles/vim"
       - "/Users/scott/dotfiles/tmux"
       - "/Users/scott/Projects/presidio/pennsignals-azure"
+      - "/Users/scott/Projects/presidio/vertex/vertex.active-directory.scripts"
     hackernews:
       focusChar: 2
       enabled: true
