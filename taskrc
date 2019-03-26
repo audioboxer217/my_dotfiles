@@ -29,8 +29,9 @@ include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
-color.project.Mitre=color11
-color.project.SpectrumHealth=color9
-color.project.Vertex=rgb410
-context.Presidio=+Presidio
+color.tag.Coda=rgb030
+color.project.AWS_Certs=rgb540
+color.tag.Mitre=color11
+color.tag.Vertex=rgb410
+context.Vertex=+Vertex
 context.Coda=+Coda
