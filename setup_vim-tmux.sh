@@ -1,11 +1,15 @@
 #!/bin/bash
 
-apt-get install -y vim tmux
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+apt-get update && apt-get install -y vim tmux
 git submodule update --init --recursive
 
-ln -snf $(pwd)/tmux/tmux $HOME/.tmux
-ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf
-ln -snf $(pwd)/vim $HOME/.vim
+mv $HOME/.bashrc $HOME/.bashrc_old
 
-echo 'source <(kubectl completion bash)' >> $HOME/.bashrc
+ln -sf $dir/bashrc $HOME/.bashrc
+ln -snf $dir/tmux/tmux $HOME/.tmux
+ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
+ln -snf $dir/vim $HOME/.vim
+
 source $HOME/.bashrc
