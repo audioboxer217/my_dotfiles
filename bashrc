@@ -142,3 +142,5 @@ complete -C /usr/local/bin/consul consul
 complete -C /usr/local/Cellar/tfenv/0.6.0/versions/0.11.11/terraform terraform
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$PATH:/usr/local/sbin:${HOME}/scripts"

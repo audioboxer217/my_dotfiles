@@ -87,6 +87,7 @@ ln -sf $dir/bashrc $HOME/.bashrc
 ln -sf $dir/bash_aliases $HOME/.bash_aliases
 ln -sf $dir/bash_functions $HOME/.bash_functions
 ln -snf $dir/bash_themes $HOME/.bash_themes
+ln -snf $dir/scripts $HOME/scripts
 ln -sf $dir/gitconfig $HOME/.gitconfig
 ln -sf $dir/presidio.gitconfig $HOME/presidio.gitconfig
 ln -sf $dir/technologent.gitconfig $HOME/technologent.gitconfig
