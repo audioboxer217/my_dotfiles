@@ -1,6 +1,6 @@
 [user]
-	name = scott.eppler
-	email = scott.eppler@coda.global
+  name = scott.eppler
+  email = scott.eppler@coda.global
 #[include]
 #  path = ~/default.gitconfig
 [includeIf "gitdir:~/Projects/presidio/"]
@@ -8,4 +8,10 @@
 [includeIf "gitdir:~/Projects/technologent/"]
   path = ~/technologent.gitconfig
 [core]
-	editor = vim
+  editor = vim
+[color "status"]
+  added = green
+  updated = green
+  changed = yellow
+  untracked = red
+  unmerged = yellow
