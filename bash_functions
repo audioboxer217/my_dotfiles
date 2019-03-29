@@ -7,6 +7,21 @@ weather()
     curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
 
+git_status() {
+  echo "${PROMPT_BOLD}Branch${PROMPT_RESET}"
+  git branch 2> /dev/null | grep \* | cut -d ' ' -f2
+  echo ""
+  echo "${PROMPT_BOLD}Changed Files${PROMPT_RESET}"
+  if [ $(git diff --numstat | wc -l) == 0 ]; then
+    echo "None"
+  else
+    git status -s
+  fi
+  echo ""
+  echo "${PROMPT_BOLD}Recent Commits${PROMPT_RESET}"
+  git log -n 5 --format="%Cgreen%h %C(white)%C(dim)%ad %C(reset)%C(white)%s %C(dim)%an" --date=format:"%H:%M %d %b %y"
+}
+
 prompt_theme() {
   if [ -f ~/.bash_themes/$1 ]; then
     echo $1 > ~/.bash_prompt_theme
