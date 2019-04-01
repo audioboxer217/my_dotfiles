@@ -88,4 +88,4 @@ ln -sf $dir/taskrc $HOME/.taskrc
 
 mkdir -p $HOME/Projects/{presidio,technologent}
 
-tfenv install 0.11.11 #latest
+tfenv install latest
