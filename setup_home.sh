@@ -3,7 +3,6 @@
 username="$(whoami)"
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 os="$(uname -a | awk '{printf $1}')"
-wtf_ver=0.5.0
 tools_all="vim \
            tmux \
            ansible \
@@ -52,11 +51,6 @@ if [ $os == "Linux" ]; then
   tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
   rm v$kube_ps1_ver.tar.gz
 
-  #Manual install of wtf
-  wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_linux_386.tar.gz
-  tar -xzf wtf_$wtf_ver\_linux_386.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_linux_386/wtf
-  rm wtf_$wtf_ver\_linux_386.tar.gz
-
   #Manual install of tfenv
   sudo -u $username git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
   ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
@@ -64,11 +58,6 @@ if [ $os == "Linux" ]; then
 
 elif [ $os == "Darwin" ]; then
   brew install $tools_all $tools_brew
-
-  #Manual install of wtf
-  wget https://github.com/wtfutil/wtf/releases/download/$wtf_ver/wtf_$wtf_ver\_darwin_amd64.tar.gz
-  tar -xzf wtf_$wtf_ver\_darwin_amd64.tar.gz --strip-components=1 -C /usr/local/bin/ wtf_$wtf_ver\_darwin_amd64/wtf
-  rm wtf_$wtf_ver\_darwin_amd64.tar.gz
 
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
@@ -95,7 +84,6 @@ ln -snf $dir/ssh $HOME/.ssh
 ln -snf $dir/tmux/tmux $HOME/.tmux
 ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
 ln -snf $dir/vim $HOME/.vim
-ln -sf $dir/wtf_config.yml $HOME/.config/wtf/config.yml
 ln -sf $dir/taskrc $HOME/.taskrc
 
 mkdir -p $HOME/Projects/{presidio,technologent}
