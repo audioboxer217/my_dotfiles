@@ -80,7 +80,7 @@ ln -snf $dir/scripts $HOME/scripts
 ln -sf $dir/gitconfig $HOME/.gitconfig
 ln -sf $dir/presidio.gitconfig $HOME/presidio.gitconfig
 ln -sf $dir/technologent.gitconfig $HOME/technologent.gitconfig
-ln -snf $dir/ssh $HOME/.ssh
+ln -sf $dir/ssh_config $HOME/.ssh/config
 ln -snf $dir/tmux/tmux $HOME/.tmux
 ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
 ln -snf $dir/vim $HOME/.vim
