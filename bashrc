@@ -131,6 +131,7 @@ export NVM_DIR="$HOME/.nvm"
 # Initialize Z
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
+  . $HOME/scripts/zfz.sh
 fi
 
 # Hashicorp Tools Autocomplete
