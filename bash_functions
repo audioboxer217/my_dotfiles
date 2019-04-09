@@ -14,7 +14,7 @@ git_status() {
   git branch 2> /dev/null | grep \* | cut -d ' ' -f2
   echo ""
   echo "${PROMPT_BOLD}Changed Files${PROMPT_RESET}"
-  if [ $(git diff --numstat | wc -l) == 0 ]; then
+  if [ $(git diff --numstat | wc -l) == 0 ] && [ $(git diff --staged --numstat | wc -l) == 0 ]; then
     echo "None"
   else
     git status -s
