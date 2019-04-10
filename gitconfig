@@ -9,6 +9,7 @@
   path = ~/technologent.gitconfig
 [core]
   editor = vim
+  excludesfile = ~/.gitignore_global
 [color "status"]
   added = green
   updated = green
