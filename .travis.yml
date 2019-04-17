@@ -1,3 +1,7 @@
 language: bash
 
-script: setup_home.sh
+os:
+  - linux_ubuntu
+  - osx
+
+script: ./setup_home.sh
