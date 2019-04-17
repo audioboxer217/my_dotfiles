@@ -31,6 +31,12 @@ Host *.mylabserver.com
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
 
+Host *.opentlc.com
+  User scott.eppler-coda.global
+  IdentityFIle ~/.ssh/redhat
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
 Host raspberrypi
   User pi
 
