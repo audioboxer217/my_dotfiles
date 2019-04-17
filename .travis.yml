@@ -4,7 +4,4 @@ os:
   - linux
   - osx
 
-git:
-  submodules: false
-
-script: ./setup_home.sh
+script: sudo ./setup_home.sh
