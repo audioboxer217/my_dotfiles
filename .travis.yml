@@ -1,7 +1,10 @@
 language: bash
 
 os:
-  - linux_ubuntu
+  - linux
   - osx
+
+git:
+  submodules: false
 
 script: ./setup_home.sh
