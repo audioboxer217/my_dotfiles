@@ -4,4 +4,6 @@ os:
   - linux
   - osx
 
-script: sudo ./setup_home.sh
+script:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]];    then ./setup_home.sh      ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]];  then sudo ./setup_home.sh ; fi
