@@ -45,6 +45,7 @@ if [ $os == "Linux" ]; then
   sudo -u $username $HOME/.fzf/install --all
 
   #Manual install of z
+  mkdir -p /usr/local/etc/profile.d
   curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" \
     -o /usr/local/etc/profile.d/"#1"
 
