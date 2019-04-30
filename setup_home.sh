@@ -44,6 +44,10 @@ if [ $os == "Linux" ]; then
   sudo -u $username git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
   sudo -u $username $HOME/.fzf/install --all
 
+  #Manual install of z
+  curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" \
+    -o /usr/local/etc/profile.d/"#1"
+
   #Manual install of kube-ps1
   kube_ps1_ver=0.7.0
   wget https://github.com/jonmosco/kube-ps1/archive/v$kube_ps1_ver.tar.gz
