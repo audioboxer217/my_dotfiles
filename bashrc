@@ -129,10 +129,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Initialize Z
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-  . /usr/local/etc/profile.d/z.sh
-  . $HOME/scripts/zfz.sh
-fi
+. /usr/local/etc/profile.d/z.sh
+. ~/scripts/zfz.sh
 
 # Hashicorp Tools Autocomplete
 complete -C /usr/local/bin/terraform terraform
