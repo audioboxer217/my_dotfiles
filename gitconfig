@@ -2,6 +2,8 @@
   name = scott.eppler
   email = scott.eppler@coda.global
   signingkey = CDF6B2F3E774E4A3
+[commit]
+  gpgsign = true
 #[include]
 #  path = ~/default.gitconfig
 [includeIf "gitdir:~/Projects/presidio/"]
