@@ -55,6 +55,12 @@ if [ $os == "Linux" ]; then
   ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
 
 elif [ $os == "Darwin" ]; then
+  # install homebrew if it's missing
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
   brew bundle install --file $dir/Brewfile
 
   #Enable completion and key-bindings for `fzf`
