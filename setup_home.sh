@@ -50,6 +50,12 @@ elif [ $os == "Darwin" ]; then
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
 
+  if [ -d "$HOME/.iterm2"  ]; then
+    echo "Setting iTerm preference folder"
+    ln -sf $dir/iterm2.plist $HOME/.iterm2/com.googlecode.iterm2.plist
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+  fi
+
 else
   echo "$os not supported"
 
