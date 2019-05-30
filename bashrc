@@ -141,3 +141,6 @@ complete -C /usr/local/bin/consul consul
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH="$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/Library/Python/3.7/bin"
+
+# Start tmux
+[ -z "$TMUX"  ] && { tmux attach -t main || exec tmux new -s main;}
