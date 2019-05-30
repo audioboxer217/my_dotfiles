@@ -3,20 +3,13 @@
 username="$(whoami)"
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 os="$(uname -a | awk '{printf $1}')"
-tools_all="vim \
+tools_apt="vim \
            tmux \
            ansible \
            htop"
 
-tools_brew="bat \
-            exa \
-            prettyping \
-            fzf \
-            kube-ps1 \
-            tfenv"
-
 if [ $os == "Linux" ]; then
-  apt-get install -y $tools_all
+  apt-get install -y $tools_apt
 
   #Manual install of bat
   bat_ver=0.10.0
@@ -62,7 +55,7 @@ if [ $os == "Linux" ]; then
   ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
 
 elif [ $os == "Darwin" ]; then
-  brew install $tools_all $tools_brew
+  brew bundle install --file $dir/Brewfile
 
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
