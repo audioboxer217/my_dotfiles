@@ -143,4 +143,4 @@ complete -C /usr/local/bin/consul consul
 export PATH="$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/Library/Python/3.7/bin"
 
 # Start tmux
-[ -z "$TMUX"  ] && { tmux attach -t main || exec tmux new -s main;}
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
