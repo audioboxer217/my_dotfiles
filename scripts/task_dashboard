@@ -17,5 +17,6 @@ tmux select-pane -t 1
 tmux send-keys 'while true; do clear; task list; sleep 60; done' Enter
 tmux select-pane -t 3
 tmux send-keys 'while true; do clear; task summary; sleep 60; done' Enter
-tmux select-pane -t 4
+tmux select-pane -t 2
 tmux send-keys 'while true; do clear; task calendar; sleep 300; done' Enter
+tmux select-pane -t 4
