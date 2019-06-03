@@ -1,0 +1,21 @@
+# Load default .tmux.conf
+tmux source-file ~/.tmux.conf
+
+tmux split-window -v -p 45 -c ~/
+tmux select-pane -t 1
+#send-keys 'ls -lart' Enter
+tmux split-window -h -p 50 -c ~/
+tmux select-pane -t 1
+tmux split-window -v -p 50 -c ~/
+tmux select-pane -t 3
+tmux split-window -v -p 50 -c ~/
+
+# Send commands to the created panes
+tmux select-pane -t 0
+tmux send-keys 'while true; do clear; task burndown.daily; sleep 300; done' Enter
+tmux select-pane -t 1
+tmux send-keys 'while true; do clear; task list; sleep 60; done' Enter
+tmux select-pane -t 3
+tmux send-keys 'while true; do clear; task summary; sleep 60; done' Enter
+tmux select-pane -t 4
+tmux send-keys 'while true; do clear; task calendar; sleep 300; done' Enter
