@@ -9,7 +9,8 @@ tools_apt="vim \
            htop \
            bat \
            exa \
-           fzf"
+           fzf \
+           zsh"
 
 if [ $os == "Linux" ]; then
   apt-get install -y $tools_apt
@@ -63,7 +64,9 @@ fi
 
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O oh-my-zsh_install.sh
+  sh oh-my-zsh_install.sh --unattended
+  chsh /bin/zsh
 fi
 
 git submodule update --init --recursive
