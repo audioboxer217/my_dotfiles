@@ -1,5 +1,7 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+brew "zsh"
+brew "zsh-completions"
 brew "vim"
 brew "tmux"
 brew "ansible"

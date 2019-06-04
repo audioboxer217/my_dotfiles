@@ -61,14 +61,22 @@ else
 
 fi
 
+# Install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
 git submodule update --init --recursive
 
 mv $HOME/.bashrc $HOME/.bashrc_old
 
 ln -sf $dir/ansible.cfg $HOME/.ansible.cfg
 ln -sf $dir/bashrc $HOME/.bashrc
+ln -sf $dir/zshrc $HOME/.zshrc
 ln -sf $dir/bash_aliases $HOME/.bash_aliases
+ln -sf $dir/bash_aliases $HOME/.oh-my-zsh/custom/aliases.zsh
 ln -sf $dir/bash_functions $HOME/.bash_functions
+ln -sf $dir/bash_functions $HOME/.oh-my-zsh/custom/functions.zsh
 ln -snf $dir/bash_themes $HOME/.bash_themes
 ln -snf $dir/scripts $HOME/scripts
 ln -sf $dir/gitconfig $HOME/.gitconfig
