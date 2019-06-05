@@ -37,9 +37,6 @@ Host *.opentlc.com
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
 
-Host raspberrypi
-  User pi
-
 Host *
   ServerAliveInterval 240
   IdentityFile ~/.ssh/id_rsa
