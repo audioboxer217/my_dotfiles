@@ -77,6 +77,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export DEFAULT_USER="scott$(prompt_context(){})"
+source /usr/local/opt/kube-ps1/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
