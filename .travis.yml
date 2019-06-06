@@ -4,6 +4,8 @@ os:
   - linux
   - osx
 
+dist: xenial
+
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]];    then ./setup_home.sh      ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]];  then sudo ./setup_home.sh ; fi
