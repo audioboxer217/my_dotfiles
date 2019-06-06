@@ -112,3 +112,6 @@ fi
 
 # Setup rbenv
 eval "$(rbenv init -)"
+
+# Setup pyenv
+eval "$(pyenv init -)"
