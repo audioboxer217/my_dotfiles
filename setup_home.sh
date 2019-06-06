@@ -14,7 +14,7 @@ tools_apt="vim \
            zsh-syntax-highlighting"
 
 if [ $os == "Linux" ]; then
-  apt-get install -y $tools_apt
+  apt-get update && apt-get install -y $tools_apt
 
   #Manual install of prettyping
   prettyping_ver=1.0.1
