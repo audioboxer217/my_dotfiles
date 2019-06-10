@@ -7,7 +7,7 @@ if brew_loc="$(type -p exa)"; then
 fi
 
 if brew_loc="$(type -p prettyping)"; then
-  alias ping='prettyping'
+  alias ping='prettyping --nolegend'
 fi
 
 if brew_loc="$(type -p htop)"; then
