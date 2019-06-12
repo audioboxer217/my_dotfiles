@@ -2,11 +2,11 @@ pwatch() { while true; do clear; $1; sleep $2; done; }
 
 news() { curl getnews.tech/$1; }
 
-weather()
-{
-    local request="wttr.in/${1-Owasso}"
-    [ "$COLUMNS" -lt 125 ] && request+='?n'
-    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+weather() {
+  local request="wttr.in/${1-Owasso}"
+  [ "$COLUMNS" -lt 125 ] && request+='?n'
+  curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
 }
 
 git_status() {
