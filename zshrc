@@ -17,7 +17,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Powerlevel9k Settings
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs pyenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs aws kubecontext)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs aws kubecontext)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{blue}\u256D%F{white}'
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}\u2570\uf460%F{white} '
