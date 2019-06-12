@@ -7,6 +7,13 @@ weather() {
   [ "$COLUMNS" -lt 125 ] && request+='?n'
   curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
+
+aws-switch() {
+  if [ "${1}" = "clear" ]; then
+    export AWS_PROFILE=""
+  else
+    export AWS_PROFILE="${1}"
+  fi
 }
 
 git_status() {
