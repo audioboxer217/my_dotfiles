@@ -14,7 +14,7 @@ git_status() {
   git branch 2> /dev/null | grep \* | cut -d ' ' -f2
   echo ""
   echo "${PROMPT_BOLD}Changed Files${PROMPT_RESET}"
-  if [ $(git diff --numstat | wc -l) == 0 ] && [ $(git diff --staged --numstat | wc -l) == 0 ]; then
+  if [ $(git diff --numstat | wc -l) -eq 0 ] && [ $(git diff --staged --numstat | wc -l) -eq 0 ]; then
     echo "None"
   else
     git status -s
@@ -29,7 +29,7 @@ prompt_theme() {
     echo $1 > ~/.bash_prompt_theme
     source ~/.bashrc
   else
-    if [ $1 == 'default' ]; then
+    if [ $1 = 'default' ]; then
       unset CUSTOM_PROMPT_THEME
       rm ~/.bash_prompt_theme
       source ~/.bashrc
@@ -52,7 +52,7 @@ get_batt_info() {
   local batt_level=$(echo "$batt_stats" | awk '{print substr($3,1,length($3)-2)}')
   local batt_state=$(echo "$batt_stats" | awk '{print substr($4,1,length($4)-1)}')
   local  batt_time=$(echo "$batt_stats" | awk '{print $5}')
-  if [ $batt_state == "charging" ] || [ $batt_state == "charged" ]; then
+  if [ $batt_state = "charging" ] || [ $batt_state = "charged" ]; then
     batt_state_color=$green
   else
     batt_state_color=$yellow
@@ -64,7 +64,7 @@ get_batt_info() {
   else
     batt_level_color=$red
   fi
-  if [ $batt_time == "(no" ]; then
+  if [ $batt_time = "(no" ]; then
     batt_time="calculating"
   fi
 
