@@ -80,7 +80,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}\u2570\uf460%F{white} '
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws brew docker git kubectl osx pip python pyenv taskwarrior tmux z)
+plugins=(aws brew docker git kubectl osx pip python pyenv taskwarrior tmux z zsh-iterm-touchbar)
 
 source $ZSH/oh-my-zsh.sh
 
