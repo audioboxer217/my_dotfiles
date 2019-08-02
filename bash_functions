@@ -28,7 +28,7 @@ git_status() {
   fi
   echo ""
   echo "${PROMPT_BOLD}Recent Commits${PROMPT_RESET}"
-  git log -n 5 --format="%Cgreen%h %C(white)%C(dim)%ad %C(reset)%C(white)%s %C(dim)%an" --date=format:"%H:%M %d %b %y"
+  GIT_PAGER=cat git log -n 5 --format="%Cgreen%h %C(white)%C(dim)%ad %C(reset)%C(white)%s %C(dim)%an" --date=format:"%H:%M %d %b %y"
 }
 
 prompt_theme() {
