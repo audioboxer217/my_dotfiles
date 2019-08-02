@@ -7,14 +7,25 @@ tools_apt="vim \
            tmux \
            ansible \
            htop \
-           bat \
-           exa \
-           fzf \
            zsh \
            zsh-syntax-highlighting"
 
 if [ $os == "Linux" ]; then
   apt-get update && apt-get install -y $tools_apt
+
+  #Manual install of bat
+  bat_ver=0.11.0
+  wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
+  dpkg -i bat_$bat_ver\_amd64.deb
+  rm bat_$bat_ver\_amd64.deb
+
+  #Manual install of exa
+  exa_ver=0.9.0
+  wget https://github.com/ogham/exa/releases/download/v$exa_ver/exa-linux-x86_64-$exa_ver.zip
+  unzip -p  exa-linux-x86_64-0.8.0.zip exa-linux-x86_64 > /usr/local/bin/exa
+  chmod +x /usr/local/bin/exa
+  rm exa-linux-x86_64-$exa_ver.zip
+  curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
 
   #Manual install of prettyping
   prettyping_ver=1.0.1
@@ -22,6 +33,11 @@ if [ $os == "Linux" ]; then
   unzip -p v1.0.1.zip prettyping-$prettyping_ver/prettyping > /usr/local/bin/prettyping
   chmod +x /usr/local/bin/prettyping
   rm v$prettyping_ver.zip
+
+  #Manual install of fzf
+  cd $HOME
+  sudo -u $username git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  sudo -u $username $HOME/.fzf/install --all
 
   #Manual install of z
   mkdir -p /usr/local/etc/profile.d
