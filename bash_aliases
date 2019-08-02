@@ -2,6 +2,10 @@ if brew_loc="$(type -p bat)"; then
   alias cat='bat'
 fi
 
+if brew_loc="$(type -p wtfutil)"; then
+  alias wtf='wtfutil'
+fi
+
 if brew_loc="$(type -p exa)"; then
   alias ls='exa'
 fi
