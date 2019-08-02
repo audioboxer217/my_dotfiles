@@ -86,8 +86,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sudo -u $username $HOME/oh-my-zsh_install.sh --unattended
 fi
 
-git submodule update --init --recursive
+# Add in oh-my-zsh Plugins
+## Powerlevel10k Theme
+  sudo -u $username git clone https://github.com/romkatv/powerlevel10k.git ${HOME}/.oh-my-zsh/custom/themes/powerlevel10k
+## iterm-touchbar
+  cd ${HOME}/.oh-my-zsh/custom/plugins
+  sudo -u $username git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
+git submodule update --init --recursive
 
 mv $HOME/.bashrc $HOME/.bashrc_old
 
