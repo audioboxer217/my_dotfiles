@@ -120,3 +120,6 @@ ln -sf $dir/taskrc $HOME/.taskrc
 mkdir -p $HOME/Projects/{presidio,technologent}
 
 tfenv install latest
+
+/bin/zsh
+source $HOME/.zshrc
