@@ -110,6 +110,7 @@ ln -sf $dir/gitconfig $HOME/.gitconfig
 ln -sf $dir/gitignore_global $HOME/.gitignore_global
 ln -sf $dir/presidio.gitconfig $HOME/presidio.gitconfig
 ln -sf $dir/technologent.gitconfig $HOME/technologent.gitconfig
+if [ ! -d "$HOME/.ssh" ]; then mkdir $HOME/.ssh; fi
 ln -sf $dir/ssh_config $HOME/.ssh/config
 ln -snf $dir/tmux/tmux $HOME/.tmux
 ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
