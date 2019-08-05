@@ -16,13 +16,14 @@ if [ $os == "Linux" ]; then
   #Manual install of bat
   bat_ver=0.11.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
-  sudo pkg -i bat_$bat_ver\_amd64.deb
+  sudo dpkg -i bat_$bat_ver\_amd64.deb
   rm bat_$bat_ver\_amd64.deb
 
   #Manual install of exa
   exa_ver=0.9.0
   wget https://github.com/ogham/exa/releases/download/v$exa_ver/exa-linux-x86_64-$exa_ver.zip
-  sudo unzip -p  exa-linux-x86_64-0.8.0.zip exa-linux-x86_64 > /usr/local/bin/exa
+  unzip -p  exa-linux-x86_64-$exa_ver.zip exa-linux-x86_64 > exa
+  sudo mv exa /usr/local/bin/exa
   sudo chmod +x /usr/local/bin/exa
   rm exa-linux-x86_64-$exa_ver.zip
   sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
@@ -30,7 +31,8 @@ if [ $os == "Linux" ]; then
   #Manual install of prettyping
   prettyping_ver=1.0.1
   wget https://github.com/denilsonsa/prettyping/archive/v$prettyping_ver.zip
-  sudo unzip -p v1.0.1.zip prettyping-$prettyping_ver/prettyping > /usr/local/bin/prettyping
+  unzip -p v$prettyping_ver.zip prettyping-$prettyping_ver/prettyping > prettyping
+  sudo mv prettyping /usr/local/bin/prettyping
   sudo chmod +x /usr/local/bin/prettyping
   rm v$prettyping_ver.zip
 
@@ -40,7 +42,7 @@ if [ $os == "Linux" ]; then
   $HOME/.fzf/install --all
 
   #Manual install of z
-  mkdir -p /usr/local/etc/profile.d
+  sudo mkdir -p /usr/local/etc/profile.d
   sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
   #Manual install of kube-ps1
