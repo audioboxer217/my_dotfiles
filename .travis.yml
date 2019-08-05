@@ -7,6 +7,5 @@ os:
 dist: xenial
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]];    then ./setup_home.sh      ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]];  then sudo ./setup_home.sh ; fi
+  - ./setup_home.sh
   - ./run_tests.sh
