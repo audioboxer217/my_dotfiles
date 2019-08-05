@@ -13,6 +13,11 @@ tools_apt="vim \
 if [ $os == "Linux" ]; then
   sudo apt-get update && sudo apt-get install -y $tools_apt
 
+  #Manual install of keybase
+  curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+  sudo dpkg -i keybase_amd64.deb
+  sudo apt-get install -f
+
   #Manual install of bat
   bat_ver=0.11.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
@@ -121,3 +126,7 @@ ln -sf $dir/taskrc $HOME/.taskrc
 mkdir -p $HOME/Projects/{presidio,technologent}
 
 tfenv install latest
+
+echo "Don't forget to:"
+echo " - execute 'run_keybase'"
+echo " - import gpg key (https://github.com/pstadler/keybase-gpg-github/blob/master/README.md)"
