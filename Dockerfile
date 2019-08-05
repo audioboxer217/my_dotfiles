@@ -1,6 +1,6 @@
 # Test for my_dotfiles
 #
-# VERSION               0.1
+# VERSION               0.2
 
 FROM ubuntu
 
@@ -13,7 +13,7 @@ RUN echo 'scott ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 COPY --chown=scott . /home/scott/dotfiles
 USER scott
-RUN ["sudo", "/home/scott/dotfiles/setup_home.sh"]
+RUN ["home/scott/dotfiles/setup_home.sh"]
 
 WORKDIR /home/scott
 CMD ["bash"]

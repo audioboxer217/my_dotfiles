@@ -11,50 +11,49 @@ tools_apt="vim \
            zsh-syntax-highlighting"
 
 if [ $os == "Linux" ]; then
-  apt-get update && apt-get install -y $tools_apt
+  sudo apt-get update && sudo apt-get install -y $tools_apt
 
   #Manual install of bat
   bat_ver=0.11.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
-  dpkg -i bat_$bat_ver\_amd64.deb
+  sudo pkg -i bat_$bat_ver\_amd64.deb
   rm bat_$bat_ver\_amd64.deb
 
   #Manual install of exa
   exa_ver=0.9.0
   wget https://github.com/ogham/exa/releases/download/v$exa_ver/exa-linux-x86_64-$exa_ver.zip
-  unzip -p  exa-linux-x86_64-0.8.0.zip exa-linux-x86_64 > /usr/local/bin/exa
-  chmod +x /usr/local/bin/exa
+  sudo unzip -p  exa-linux-x86_64-0.8.0.zip exa-linux-x86_64 > /usr/local/bin/exa
+  sudo chmod +x /usr/local/bin/exa
   rm exa-linux-x86_64-$exa_ver.zip
-  curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
+  sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
 
   #Manual install of prettyping
   prettyping_ver=1.0.1
   wget https://github.com/denilsonsa/prettyping/archive/v$prettyping_ver.zip
-  unzip -p v1.0.1.zip prettyping-$prettyping_ver/prettyping > /usr/local/bin/prettyping
-  chmod +x /usr/local/bin/prettyping
+  sudo unzip -p v1.0.1.zip prettyping-$prettyping_ver/prettyping > /usr/local/bin/prettyping
+  sudo chmod +x /usr/local/bin/prettyping
   rm v$prettyping_ver.zip
 
   #Manual install of fzf
   cd $HOME
-  sudo -u $username git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  sudo -u $username $HOME/.fzf/install --all
+  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  $HOME/.fzf/install --all
 
   #Manual install of z
   mkdir -p /usr/local/etc/profile.d
-  curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" \
-    -o /usr/local/etc/profile.d/"#1"
+  sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
   #Manual install of kube-ps1
   kube_ps1_ver=0.7.0
   wget https://github.com/jonmosco/kube-ps1/archive/v$kube_ps1_ver.tar.gz
-  mkdir -p /usr/local/opt/kube-ps1/share
-  tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
+  sudo mkdir -p /usr/local/opt/kube-ps1/share
+  sudo tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
   rm v$kube_ps1_ver.tar.gz
 
   #Manual install of tfenv
-  sudo -u $username git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
-  ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
-  ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
+  git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
+  sudo ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
+  sudo ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
 
 elif [ $os == "Darwin" ]; then
   # install homebrew if it's missing
@@ -81,17 +80,17 @@ fi
 
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sudo -u $username wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O $HOME/oh-my-zsh_install.sh
+  wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O $HOME/oh-my-zsh_install.sh
   chmod +x $HOME/oh-my-zsh_install.sh
-  sudo -u $username $HOME/oh-my-zsh_install.sh --unattended
+  $HOME/oh-my-zsh_install.sh --unattended
 fi
 
 # Add in oh-my-zsh Plugins
 ## Powerlevel10k Theme
-  sudo -u $username git clone https://github.com/romkatv/powerlevel10k.git ${HOME}/.oh-my-zsh/custom/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git ${HOME}/.oh-my-zsh/custom/themes/powerlevel10k
 ## iterm-touchbar
-  cd ${HOME}/.oh-my-zsh/custom/plugins
-  sudo -u $username git clone https://github.com/iam4x/zsh-iterm-touchbar.git
+cd ${HOME}/.oh-my-zsh/custom/plugins
+git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
 git submodule update --init --recursive
 
@@ -120,6 +119,3 @@ ln -sf $dir/taskrc $HOME/.taskrc
 mkdir -p $HOME/Projects/{presidio,technologent}
 
 tfenv install latest
-
-/bin/zsh
-source $HOME/.zshrc
