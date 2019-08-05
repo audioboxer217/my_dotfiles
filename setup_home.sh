@@ -62,7 +62,7 @@ elif [ $os == "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  brew bundle install --file $dir/Brewfile
+  brew update && brew bundle install --file $dir/Brewfile
 
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
