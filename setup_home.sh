@@ -8,7 +8,8 @@ tools_apt="vim \
            ansible \
            htop \
            zsh \
-           zsh-syntax-highlighting"
+           zsh-syntax-highlighting \
+           rbenv"
 
 if [ $os == "Linux" ]; then
   sudo apt-get update && sudo apt-get install -y $tools_apt
