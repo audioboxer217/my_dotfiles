@@ -13,18 +13,19 @@ tools_apt="vim \
 if [ $os == "Linux" ]; then
   sudo apt-get update && sudo apt-get install -y $tools_apt
 
-  #Manual install of keybase
+  ### Manual Installations ###
+  # keybase
   curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
   sudo dpkg -i keybase_amd64.deb
   sudo apt-get install -f
 
-  #Manual install of bat
+  # bat
   bat_ver=0.11.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
   sudo dpkg -i bat_$bat_ver\_amd64.deb
   rm bat_$bat_ver\_amd64.deb
 
-  #Manual install of exa
+  # exa
   exa_ver=0.9.0
   wget https://github.com/ogham/exa/releases/download/v$exa_ver/exa-linux-x86_64-$exa_ver.zip
   unzip -p  exa-linux-x86_64-$exa_ver.zip exa-linux-x86_64 > exa
@@ -33,7 +34,7 @@ if [ $os == "Linux" ]; then
   rm exa-linux-x86_64-$exa_ver.zip
   sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
 
-  #Manual install of prettyping
+  # prettyping
   prettyping_ver=1.0.1
   wget https://github.com/denilsonsa/prettyping/archive/v$prettyping_ver.zip
   unzip -p v$prettyping_ver.zip prettyping-$prettyping_ver/prettyping > prettyping
@@ -41,23 +42,23 @@ if [ $os == "Linux" ]; then
   sudo chmod +x /usr/local/bin/prettyping
   rm v$prettyping_ver.zip
 
-  #Manual install of fzf
+  # fzf
   cd $HOME
   git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
   $HOME/.fzf/install --all
 
-  #Manual install of z
+  # z
   sudo mkdir -p /usr/local/etc/profile.d
   sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
-  #Manual install of kube-ps1
+  # kube-ps1
   kube_ps1_ver=0.7.0
   wget https://github.com/jonmosco/kube-ps1/archive/v$kube_ps1_ver.tar.gz
   sudo mkdir -p /usr/local/opt/kube-ps1/share
   sudo tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
   rm v$kube_ps1_ver.tar.gz
 
-  #Manual install of tfenv
+  # tfenv
   git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
   sudo ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
   sudo ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
@@ -92,10 +93,10 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   $HOME/oh-my-zsh_install.sh --unattended
 fi
 
-# Add in oh-my-zsh Plugins
-## Powerlevel10k Theme
+### Oh-My-ZSH Plugins ###
+# Powerlevel10k Theme
 git clone https://github.com/romkatv/powerlevel10k.git ${HOME}/.oh-my-zsh/custom/themes/powerlevel10k
-## iterm-touchbar
+# iterm-touchbar
 cd ${HOME}/.oh-my-zsh/custom/plugins
 git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
