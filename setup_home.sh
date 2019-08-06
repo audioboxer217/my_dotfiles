@@ -22,6 +22,7 @@ if [ $os == "Linux" ]; then
   curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
   sudo dpkg -i keybase_amd64.deb
   sudo apt-get install -f
+  rm keybase_amd64.deb
 
   # bat
   bat_ver=0.11.0
