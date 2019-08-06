@@ -15,6 +15,9 @@ if [ $os == "Linux" ]; then
   sudo apt-get update && sudo apt-get install -y $tools_apt
 
   ### Manual Installations ###
+  # pyenv
+  curl https://pyenv.run | bash
+
   # keybase
   curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
   sudo dpkg -i keybase_amd64.deb
