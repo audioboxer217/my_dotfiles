@@ -1,7 +1,7 @@
-workflow "New workflow" {
+workflow "Basic Tests" {
   on = "push"
   resolves = [
-    "run run_tests.sh",
+    "build",
     "shellcheck"
   ]
 }
@@ -9,12 +9,6 @@ workflow "New workflow" {
 action "build" {
   uses = "actions/docker/cli@master"
   args = "build -t dotfiles_test ."
-}
-
-action "run run_tests.sh" {
-  uses = "actions/docker/cli@master"
-  args = "run -it --rm dotfiles_test ./run_tests.sh"
-  needs = ["build"]
 }
 
 action "shellcheck" {

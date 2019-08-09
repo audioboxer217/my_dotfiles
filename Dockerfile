@@ -13,7 +13,8 @@ RUN echo 'scott ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 COPY --chown=scott . /home/scott/dotfiles
 USER scott
-RUN ["home/scott/dotfiles/setup_home.sh"]
+WORKDIR /home/scott/dotfiles
+RUN ["bash", "./setup_home.sh"]
+RUN ["bash", "./run_tests.sh"]
 
-WORKDIR /home/scott
 CMD ["bash"]
