@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: [ubuntu-latest, macOS-latest]
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Setup
+      run: /setup_home.sh
+    - name: Run Tests
+      run: ./run_tests.sh
