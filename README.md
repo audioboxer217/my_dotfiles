@@ -46,7 +46,6 @@ docker run -it --rm dotfiles_test /bin/bash
 * gitignore_global - my global gitignore file
 * *.gitconfig - my specific gitconfig files for certain directories
 * ssh_config - my ssh config file
-* taskrc - my TaskWarrior config file
 * setup_home.sh - The script that puts everything in its proper place.
 
 ## Usage

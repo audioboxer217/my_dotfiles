@@ -130,7 +130,6 @@ done
 ln -snf $dir/tmux/tmux $HOME/.tmux
 ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
 ln -snf $dir/vim $HOME/.vim
-ln -sf $dir/taskrc $HOME/.taskrc
 
 mkdir -p $HOME/Projects/{presidio,technologent}
 
