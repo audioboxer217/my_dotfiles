@@ -50,10 +50,6 @@ link_check() {
   link_check .ssh/config
 }
 
-@test "Task Warrior Config link" {
-  link_check .taskrc
-}
-
 @test "Tmux Config link" {
   link_check .tmux
 }
