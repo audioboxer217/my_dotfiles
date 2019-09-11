@@ -15,4 +15,5 @@ jobs:
     - name: Run Setup
       run: ./setup_home.sh
     - name: Run Tests
-      run: ${pwd}/test/libs/bats/bin/bats ${pwd}/test/*.bats
+      uses: actions/bin/bats@master
+      args: test/*.bats
