@@ -16,4 +16,5 @@ jobs:
       run: ./setup_home.sh
     - name: Run Tests
       uses: actions/bin/bats@master
-      args: test/*.bats
+      with:
+        args: test/*.bats
