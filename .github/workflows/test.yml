@@ -15,4 +15,4 @@ jobs:
     - name: Run Setup
       run: ./setup_home.sh
     - name: Run Tests
-      run: ./run_tests.sh
+      run: ./test/libs/bats/bin/bats test/*.bats
