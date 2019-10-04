@@ -28,6 +28,8 @@ alias powershell='/usr/local/microsoft/powershell/6/pwsh'
 
 alias k='kubectl'
 
+alias whatsmyip='curl ifconfig.co'
+
 # MAC OS Only
 if brew_loc="$(type -p brew)"; then
   alias fresh_brew='brew update && brew upgrade && brew cleanup && brew doctor'
