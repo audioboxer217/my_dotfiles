@@ -3,6 +3,7 @@ export PATH=$PATH:/usr/local/sbin:${HOME}/scripts
 
 #tmux settings
 export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOQUIT=false
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
