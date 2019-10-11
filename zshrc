@@ -1,5 +1,5 @@
 # set $PATH.
-export PATH=$PATH:/usr/local/sbin:${HOME}/scripts
+export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin
 
 #tmux settings
 export ZSH_TMUX_AUTOSTART=true
