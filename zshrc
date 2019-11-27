@@ -1,5 +1,5 @@
 # set $PATH.
-export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin
+export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.fastlane/bin
 
 #tmux settings
 export ZSH_TMUX_AUTOSTART=true
@@ -133,4 +133,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/Cellar/tfenv/1.0.1/versions/0.11.14/terraform terraform
+complete -o nospace -C $(which terraform) terraform
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
