@@ -1,5 +1,6 @@
 # set $PATH.
 export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.fastlane/bin
+export EDITOR='vim'
 
 #tmux settings
 export ZSH_TMUX_AUTOSTART=true
