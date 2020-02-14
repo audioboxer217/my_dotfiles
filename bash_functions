@@ -8,6 +8,10 @@ weather() {
   curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
 
+vpn() {
+  osascript ~/apple_scripts/${1}.scpt
+}
+
 aws-switch() {
   if [ "${1}" = "clear" ]; then
     export AWS_PROFILE=""
