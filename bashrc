@@ -144,3 +144,5 @@ export PATH="$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/Library/Python/3.7/bi
 
 # Start tmux
 [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+
+complete -C /usr/local/bin/odo odo
