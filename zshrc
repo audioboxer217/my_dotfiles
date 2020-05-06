@@ -138,5 +138,5 @@ complete -o nospace -C $(which terraform) terraform
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 compdef _vpn vpn
-
+eval "$(direnv hook zsh)"
 complete -o nospace -C /usr/local/bin/odo odo

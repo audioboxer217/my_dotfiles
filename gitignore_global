@@ -16,3 +16,6 @@ Thumbs.db
 # SSH files
 *.pem
 *.pub
+
+# DirEnv files
+.envrc
