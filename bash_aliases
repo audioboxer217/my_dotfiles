@@ -24,7 +24,7 @@ if brew_loc="$(type -p fzf)"; then
   export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 fi
 
-alias powershell='/usr/local/microsoft/powershell/6/pwsh'
+alias powershell='pwsh'
 
 alias k='kubectl'
 
