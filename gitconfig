@@ -20,4 +20,12 @@
   untracked = red
   unmerged = yellow
 [gpg]
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[alias]
+  ls = log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph --all
+  clear = "!git branch — merged | grep -v ‘*’ | xargs -n 1 git branch -d"
