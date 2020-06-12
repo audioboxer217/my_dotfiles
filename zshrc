@@ -140,3 +140,5 @@ eval "$(jenv init -)"
 compdef _vpn vpn
 eval "$(direnv hook zsh)"
 complete -o nospace -C /usr/local/bin/odo odo
+
+complete -o nospace -C /usr/local/bin/vault vault
