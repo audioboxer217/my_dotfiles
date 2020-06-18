@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        submodule: recursive
+        submodules: recursive
 
     - name: Run Setup
       run: ./setup_home.sh
