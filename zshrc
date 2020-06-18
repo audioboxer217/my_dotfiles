@@ -1,5 +1,5 @@
 # set $PATH.
-export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.fastlane/bin
+export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.cargo/bin
 export EDITOR='vim'
 
 #tmux settings
@@ -88,8 +88,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export DEFAULT_USER="scott$(prompt_context(){})"
-source /usr/local/opt/kube-ps1/share/kube-ps1.sh
-PROMPT='$(kube_ps1)'$PROMPT
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
