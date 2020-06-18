@@ -4,17 +4,18 @@ on: [push]
 
 jobs:
   test:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
     - name: Run Setup
       run: ./setup_home.sh
+      
     - name: Run Tests
-      uses: actions/bin/bats@master
-      with:
-        args: test/*.bats
+      run: ./run_tests.sh
+
+
