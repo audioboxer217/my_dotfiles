@@ -12,13 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup Bats
-      uses: mig4/setup-bats@v1.0.1
-
     - name: Run Setup
       run: ./setup_home.sh
       
     - name: Run Tests
-      run: bats -r test/*.bats
+      run: ./run_tests.sh
 
 
