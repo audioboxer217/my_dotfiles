@@ -4,17 +4,22 @@
 
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y git curl wget sudo zip
+ARG USER=scott
 
-RUN useradd -ms /bin/bash scott
-RUN usermod -aG sudo scott
-RUN echo 'scott:changeme' | chpasswd
-RUN echo 'scott ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y git curl wget sudo zip tzdata && \
+    ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
 
-COPY --chown=scott . /home/scott/dotfiles
-USER scott
-WORKDIR /home/scott/dotfiles
-RUN ["bash", "./setup_home.sh"]
-RUN ["bash", "./run_tests.sh"]
+RUN useradd -ms /bin/bash $USER
+RUN usermod -aG sudo $USER
+RUN echo "$USER:changeme" | chpasswd
+RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-CMD ["bash"]
+COPY --chown=$USER . /home/$USER/dotfiles
+USER $USER
+WORKDIR /home/$USER/dotfiles
+RUN ["/bin/bash", "./setup_home.sh"]
+RUN ["/bin/bash", "./run_tests.sh"]
+
+CMD ["/bin/bash"]
