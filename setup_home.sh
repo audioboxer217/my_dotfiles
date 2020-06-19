@@ -15,8 +15,8 @@ tools_apt="vim \
            fonts-firacode \
            rbenv"
 
-if [ $os == "Linux" ]; then
-  sudo apt-get update && sudo apt-get install -y $tools_apt
+if [ "$os" == "Linux" ]; then
+  sudo apt-get update && sudo apt-get install -y "$tools_apt"
 
   ### Manual Installations ###
   # pyenv
@@ -35,13 +35,13 @@ if [ $os == "Linux" ]; then
 
   # bat
   bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("amd64.deb"))' '.filter(x => !x.includes("musl"))[0]')
-  wget $bat_url -O bat.deb
+  wget "$bat_url" -O bat.deb
   sudo dpkg -i bat.deb
   rm bat.deb
 
   # exa
   exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("linux"))[0]')
-  wget $exa_url -O exa.zip
+  wget "$exa_url" -O exa.zip
   unzip -p  exa.zip exa-linux-x86_64 > exa
   sudo mv exa /usr/local/bin/exa
   sudo chmod +x /usr/local/bin/exa
@@ -53,38 +53,38 @@ if [ $os == "Linux" ]; then
   sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
   # tfenv
-  git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
-  sudo ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
-  sudo ln -sf $HOME/.tfenv/bin/terraform /usr/local/bin/terraform
+  git clone https://github.com/kamatama41/tfenv.git "$HOME"/.tfenv
+  sudo ln -sf "$HOME"/.tfenv/bin/tfenv /usr/local/bin/tfenv
+  sudo ln -sf "$HOME"/.tfenv/bin/terraform /usr/local/bin/terraform
 
-elif [ $os == "Darwin" ]; then
+elif [ "$os" == "Darwin" ]; then
   # install homebrew if it's missing
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  brew update && brew bundle install --file $dir/Brewfile
+  brew update && brew bundle install --file "$dir"/Brewfile
 
   #Enable completion and key-bindings for `fzf`
   $(brew --prefix)/opt/fzf/install --all
 
-  if [ -d "$HOME/.iterm2"  ]; then
+  if [ -d ""$HOME"/.iterm2"  ]; then
     echo "Setting iTerm preference folder"
-    ln -sf $dir/iterm2.plist $HOME/.iterm2/com.googlecode.iterm2.plist
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+    ln -sf "$dir"/iterm2.plist "$HOME"/.iterm2/com.googlecode.iterm2.plist
+    defaults write com.googlecode.iterm2 PrefsCustomFolder ""$HOME"/.iterm2"
   fi
 
 else
-  echo "$os not supported"
+  echo ""$os" not supported"
 
 fi
 
 # Install oh-my-zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O $HOME/oh-my-zsh_install.sh
-  chmod +x $HOME/oh-my-zsh_install.sh
-  $HOME/oh-my-zsh_install.sh --unattended
+if [ ! -d ""$HOME"/.oh-my-zsh" ]; then
+  wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O "$HOME"/oh-my-zsh_install.sh
+  chmod +x "$HOME"/oh-my-zsh_install.sh
+  "$HOME"/oh-my-zsh_install.sh --unattended
 fi
 
 ### Oh-My-ZSH Plugins ###
@@ -96,32 +96,32 @@ git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
 git submodule update --init --recursive
 
-rm -rf $HOME/.bashrc $HOME/.oh-my-zsh/completions
+rm -rf "$HOME"/.bashrc "$HOME"/.oh-my-zsh/completions
 
-ln -sf $dir/ansible.cfg $HOME/.ansible.cfg
-ln -sf $dir/bashrc $HOME/.bashrc
-ln -sf $dir/zshrc $HOME/.zshrc
-ln -sf $dir/bash_aliases $HOME/.bash_aliases
-ln -sf $dir/bash_aliases $HOME/.oh-my-zsh/custom/aliases.zsh
-ln -sf $dir/bash_functions $HOME/.bash_functions
-ln -sf $dir/bash_functions $HOME/.oh-my-zsh/custom/functions.zsh
-ln -sf $dir/zsh_completions $HOME/.oh-my-zsh/completions
-ln -snf $dir/bash_themes $HOME/.bash_themes
-ln -snf $dir/scripts $HOME/scripts
-ln -sf $dir/gitconfig $HOME/.gitconfig
-ln -sf $dir/gitignore_global $HOME/.gitignore_global
-ln -sf $dir/presidio.gitconfig $HOME/presidio.gitconfig
-ln -sf $dir/technologent.gitconfig $HOME/technologent.gitconfig
-if [ ! -d "$HOME/.ssh/config.d" ]; then mkdir -p $HOME/.ssh/config.d; fi
-ln -sf $dir/ssh_config $HOME/.ssh/config
-for confile in $(ls $dir/ssh); do
-  ln -sf $dir/ssh/$confile $HOME/.ssh/config.d/$confile
+ln -sf "$dir"/ansible.cfg "$HOME"/.ansible.cfg
+ln -sf "$dir"/bashrc "$HOME"/.bashrc
+ln -sf "$dir"/zshrc "$HOME"/.zshrc
+ln -sf "$dir"/bash_aliases "$HOME"/.bash_aliases
+ln -sf "$dir"/bash_aliases "$HOME"/.oh-my-zsh/custom/aliases.zsh
+ln -sf "$dir"/bash_functions "$HOME"/.bash_functions
+ln -sf "$dir"/bash_functions "$HOME"/.oh-my-zsh/custom/functions.zsh
+ln -sf "$dir"/zsh_completions "$HOME"/.oh-my-zsh/completions
+ln -snf "$dir"/bash_themes "$HOME"/.bash_themes
+ln -snf "$dir"/scripts "$HOME"/scripts
+ln -sf "$dir"/gitconfig "$HOME"/.gitconfig
+ln -sf "$dir"/gitignore_global "$HOME"/.gitignore_global
+ln -sf "$dir"/presidio.gitconfig "$HOME"/presidio.gitconfig
+ln -sf "$dir"/technologent.gitconfig "$HOME"/technologent.gitconfig
+if [ ! -d ""$HOME"/.ssh/config.d" ]; then mkdir -p "$HOME"/.ssh/config.d; fi
+ln -sf "$dir"/ssh_config "$HOME"/.ssh/config
+for confile in $(ls "$dir"/ssh); do
+  ln -sf "$dir"/ssh/"$confile" "$HOME"/.ssh/config.d/"$confile"
 done
-ln -snf $dir/tmux/tmux $HOME/.tmux
-ln -sf $dir/tmux/tmux.conf $HOME/.tmux.conf
-ln -snf $dir/vim $HOME/.vim
+ln -snf "$dir"/tmux/tmux "$HOME"/.tmux
+ln -sf "$dir"/tmux/tmux.conf "$HOME"/.tmux.conf
+ln -snf "$dir"/vim "$HOME"/.vim
 
-mkdir -p $HOME/Projects/{presidio,technologent}
+mkdir -p "$HOME"/Projects/{presidio,technologent}
 
 tfenv install latest
 
