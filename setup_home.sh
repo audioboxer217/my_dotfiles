@@ -6,7 +6,9 @@ os="$(uname -a | awk '{printf $1}')"
 tools_apt="vim \
            tmux \
            ansible \
+           fzf \
            htop \
+           prettyping \
            zsh \
            zsh-syntax-highlighting \
            rbenv"
@@ -38,19 +40,6 @@ if [ $os == "Linux" ]; then
   sudo chmod +x /usr/local/bin/exa
   rm exa-linux-x86_64-$exa_ver.zip
   sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
-
-  # prettyping
-  prettyping_ver=1.0.1
-  wget https://github.com/denilsonsa/prettyping/archive/v$prettyping_ver.zip
-  unzip -p v$prettyping_ver.zip prettyping-$prettyping_ver/prettyping > prettyping
-  sudo mv prettyping /usr/local/bin/prettyping
-  sudo chmod +x /usr/local/bin/prettyping
-  rm v$prettyping_ver.zip
-
-  # fzf
-  cd $HOME
-  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  $HOME/.fzf/install --all
 
   # z
   sudo mkdir -p /usr/local/etc/profile.d
