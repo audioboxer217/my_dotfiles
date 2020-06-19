@@ -14,13 +14,9 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Lint Code Base
-      uses: docker://github/super-linter:v2.1.0
-
     - name: Run Setup
       run: ./setup_home.sh
-      
+
     - name: Run Tests
       run: ./run_tests.sh
-
 
