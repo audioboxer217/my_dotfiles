@@ -26,6 +26,11 @@ if [ $os == "Linux" ]; then
   sudo apt-get install -f
   rm keybase_amd64.deb
 
+  # fx
+  curl -L https://fx.wtf > fx_install.sh
+  chmod +x fx_install.sh
+  yes | sudo ./fx_install.sh
+
   # bat
   bat_ver=0.11.0
   wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
