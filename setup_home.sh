@@ -6,6 +6,7 @@ os="$(uname -a | awk '{printf $1}')"
 tools_apt="vim \
            tmux \
            ansible \
+           direnv \
            fzf \
            htop \
            prettyping \
