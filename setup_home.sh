@@ -56,13 +56,6 @@ if [ $os == "Linux" ]; then
   sudo mkdir -p /usr/local/etc/profile.d
   sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
-  # kube-ps1
-  kube_ps1_ver=0.7.0
-  wget https://github.com/jonmosco/kube-ps1/archive/v$kube_ps1_ver.tar.gz
-  sudo mkdir -p /usr/local/opt/kube-ps1/share
-  sudo tar -xzf v$kube_ps1_ver.tar.gz --strip-components=1 -C /usr/local/opt/kube-ps1/share/ kube-ps1-$kube_ps1_ver/kube-ps1.sh
-  rm v$kube_ps1_ver.tar.gz
-
   # tfenv
   git clone https://github.com/kamatama41/tfenv.git $HOME/.tfenv
   sudo ln -sf $HOME/.tfenv/bin/tfenv /usr/local/bin/tfenv
