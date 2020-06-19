@@ -32,18 +32,18 @@ if [ $os == "Linux" ]; then
   yes | sudo ./fx_install.sh
 
   # bat
-  bat_ver=0.11.0
-  wget https://github.com/sharkdp/bat/releases/download/v$bat_ver/bat_$bat_ver\_amd64.deb
-  sudo dpkg -i bat_$bat_ver\_amd64.deb
-  rm bat_$bat_ver\_amd64.deb
+  bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("amd64.deb"))' '.filter(x => !x.includes("musl"))[0]')
+  wget $bat_url -O bat.deb
+  sudo dpkg -i bat.deb
+  rm bat.deb
 
   # exa
-  exa_ver=0.9.0
-  wget https://github.com/ogham/exa/releases/download/v$exa_ver/exa-linux-x86_64-$exa_ver.zip
-  unzip -p  exa-linux-x86_64-$exa_ver.zip exa-linux-x86_64 > exa
+  exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("linux"))[0]')
+  wget $exa_url -O exa.zip
+  unzip -p  exa.zip exa-linux-x86_64 > exa
   sudo mv exa /usr/local/bin/exa
   sudo chmod +x /usr/local/bin/exa
-  rm exa-linux-x86_64-$exa_ver.zip
+  rm exa.zip
   sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.bash -o /etc/bash_completion.d/exa
 
   # z
