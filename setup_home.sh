@@ -11,6 +11,7 @@ tools_apt="vim \
            prettyping \
            zsh \
            zsh-syntax-highlighting \
+           fonts-firacode \
            rbenv"
 
 if [ $os == "Linux" ]; then
