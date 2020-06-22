@@ -16,7 +16,7 @@ tools_apt=(
           )
 
 if [ "${os}" == "Linux" ]; then
-  sudo apt-get update && sudo apt-get install -y ${tools_apt[@]}
+  sudo apt-get update && sudo apt-get install -y "${tools_apt[@]}"
 
   ### Manual Installations ###
   # pyenv
@@ -74,21 +74,21 @@ elif [ "${os}" == "Darwin" ]; then
   brew update && brew bundle install --file "${dir}"/Brewfile
 
   #Enable completion and key-bindings for `fzf`
-  $(brew --prefix)/opt/fzf/install --all
+  "$(brew --prefix)"/opt/fzf/install --all
 
-  if [ -d ""${HOME}"/.iterm2"  ]; then
+  if [ -d "${HOME}/.iterm2"  ]; then
     echo "Setting iTerm preference folder"
     ln -sf "${dir}"/iterm2.plist "${HOME}"/.iterm2/com.googlecode.iterm2.plist
-    defaults write com.googlecode.iterm2 PrefsCustomFolder ""${HOME}"/.iterm2"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "${HOME}/.iterm2"
   fi
 
 else
-  echo ""${os}" not supported"
+  echo "${os} not supported"
 
 fi
 
 # Install oh-my-zsh
-if [ ! -d ""${HOME}"/.oh-my-zsh" ]; then
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O "${HOME}"/oh-my-zsh_install.sh
   chmod +x "${HOME}"/oh-my-zsh_install.sh
   "${HOME}"/oh-my-zsh_install.sh --unattended
@@ -119,9 +119,9 @@ ln -sf "${dir}"/gitconfig "${HOME}"/.gitconfig
 ln -sf "${dir}"/gitignore_global "${HOME}"/.gitignore_global
 ln -sf "${dir}"/presidio.gitconfig "${HOME}"/presidio.gitconfig
 ln -sf "${dir}"/technologent.gitconfig "${HOME}"/technologent.gitconfig
-if [ ! -d ""${HOME}"/.ssh/config.d" ]; then mkdir -p "${HOME}"/.ssh/config.d; fi
+if [ ! -d "${HOME}/.ssh/config.d" ]; then mkdir -p "${HOME}"/.ssh/config.d; fi
 ln -sf "${dir}"/ssh_config "${HOME}"/.ssh/config
-for confile in $(ls "${dir}"/ssh); do
+for confile in "${dir}/ssh/*"; do
   ln -sf "${dir}"/ssh/"${confile}" "${HOME}"/.ssh/config.d/"${confile}"
 done
 ln -snf "${dir}"/tmux/tmux "${HOME}"/.tmux
