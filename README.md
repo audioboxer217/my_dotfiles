@@ -1,8 +1,7 @@
+# My Personal Dotfiles
 [![Build Status](https://travis-ci.org/audioboxer217/my_dotfiles.svg?branch=master)](https://travis-ci.org/audioboxer217/my_dotfiles)
 ![GitHub repo size](https://img.shields.io/github/repo-size/audioboxer217/my_dotfiles.svg)
 ![GitHub](https://img.shields.io/github/license/audioboxer217/my_dotfiles.svg)
-
-# My Personal Dotfiles
 
 A collection of personalizations and conveniences for my personal systems.  This is really a mix items that I did either to make life easier for myself or to play around with an idea or tool.  Since I mostly use Ubuntu and Mac OS that is all I currently support.
 
@@ -10,7 +9,7 @@ A collection of personalizations and conveniences for my personal systems.  This
 
 Since this is a dotfiles repo, you're probably going to want to fork this repo so that you can tweak it to your liking.  Either way, clone the repo locally and switch to the new directory:
 
-```
+```shell
 git clone https://github.com/<username>/my_dotfiles.git
 cd my_dotfiles
 ```
@@ -27,7 +26,7 @@ From there, you can either run the `setup_home.sh` script directly to have it ru
 
 Or you can test it out first by building the Docker image and running there
 
-```
+```shell
 docker build -t dotfiles_test .
 docker run -it --rm dotfiles_test /bin/bash
 ```
