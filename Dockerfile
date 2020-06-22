@@ -7,7 +7,7 @@ FROM ubuntu:20.04
 ARG USER=scott
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y git curl wget sudo zip tzdata && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y git curl wget sudo zip tzdata && \
     rm -rf /var/lib/apt/lists/* && \
     ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata
