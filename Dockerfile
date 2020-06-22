@@ -2,7 +2,7 @@
 #
 # VERSION               0.2
 
-FROM ubuntu
+FROM ubuntu:20.04
 
 ARG USER=scott
 
