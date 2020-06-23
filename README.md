@@ -1,5 +1,6 @@
 # My Personal Dotfiles
-[![Build Status](https://travis-ci.org/audioboxer217/my_dotfiles.svg?branch=master)](https://travis-ci.org/audioboxer217/my_dotfiles)
+![CI](https://github.com/audioboxer217/my_dotfiles/workflows/CI/badge.svg)
+![Lint Code Base](https://github.com/audioboxer217/my_dotfiles/workflows/Lint%20Code%20Base/badge.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/audioboxer217/my_dotfiles.svg)
 ![GitHub](https://img.shields.io/github/license/audioboxer217/my_dotfiles.svg)
 
