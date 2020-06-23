@@ -98,7 +98,7 @@ fi
 # Powerlevel10k Theme
 git clone https://github.com/romkatv/powerlevel10k.git "${HOME}"/.oh-my-zsh/custom/themes/powerlevel10k
 # iterm-touchbar
-cd "${HOME}"/.oh-my-zsh/custom/plugins
+cd "${HOME}"/.oh-my-zsh/custom/plugins || exit
 git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
 git submodule update --init --recursive
@@ -121,8 +121,8 @@ ln -sf "${dir}"/presidio.gitconfig "${HOME}"/presidio.gitconfig
 ln -sf "${dir}"/technologent.gitconfig "${HOME}"/technologent.gitconfig
 if [ ! -d "${HOME}/.ssh/config.d" ]; then mkdir -p "${HOME}"/.ssh/config.d; fi
 ln -sf "${dir}"/ssh_config "${HOME}"/.ssh/config
-for confile in "${dir}/ssh/*"; do
-  ln -sf "${dir}"/ssh/"${confile}" "${HOME}"/.ssh/config.d/"${confile}"
+for confile in "${dir}"/ssh/*; do
+  ln -sf "${confile}" "${HOME}"/.ssh/config.d/"$(basename ${confile})"
 done
 ln -snf "${dir}"/tmux/tmux "${HOME}"/.tmux
 ln -sf "${dir}"/tmux/tmux.conf "${HOME}"/.tmux.conf
