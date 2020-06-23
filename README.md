@@ -1,6 +1,6 @@
 # My Personal Dotfiles
 ![CI](https://github.com/audioboxer217/my_dotfiles/workflows/CI/badge.svg)
-![Lint Code Base](https://github.com/audioboxer217/my_dotfiles/workflows/Lint%20Code%20Base/badge.svg)
+![Lint](https://github.com/audioboxer217/my_dotfiles/workflows/Lint/badge.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/audioboxer217/my_dotfiles.svg)
 ![GitHub](https://img.shields.io/github/license/audioboxer217/my_dotfiles.svg)
 
