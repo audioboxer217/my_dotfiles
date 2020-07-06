@@ -2,7 +2,6 @@
 
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-apt-get update && apt-get install -y vim tmux
 git submodule update --init --recursive
 
 mv $HOME/.bashrc $HOME/.bashrc_old
