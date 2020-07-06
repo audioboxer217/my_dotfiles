@@ -29,3 +29,5 @@
 [alias]
   ls = log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph --all
   clear = "!git branch — merged | grep -v ‘*’ | xargs -n 1 git branch -d"
+[pull]
+	rebase = true
