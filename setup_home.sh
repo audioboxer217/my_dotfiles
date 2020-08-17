@@ -117,8 +117,6 @@ ln -snf "${dir}"/bash_themes "${HOME}"/.bash_themes
 ln -snf "${dir}"/scripts "${HOME}"/scripts
 ln -sf "${dir}"/gitconfig "${HOME}"/.gitconfig
 ln -sf "${dir}"/gitignore_global "${HOME}"/.gitignore_global
-ln -sf "${dir}"/presidio.gitconfig "${HOME}"/presidio.gitconfig
-ln -sf "${dir}"/technologent.gitconfig "${HOME}"/technologent.gitconfig
 if [ ! -d "${HOME}/.ssh/config.d" ]; then mkdir -p "${HOME}"/.ssh/config.d; fi
 ln -sf "${dir}"/ssh_config "${HOME}"/.ssh/config
 for confile in "${dir}"/ssh/*; do

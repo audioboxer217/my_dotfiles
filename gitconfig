@@ -1,15 +1,9 @@
 [user]
   name = scott.eppler
-  email = scott.eppler@coda.global
+  email = seppler@presidio.com
   signingkey = CDF6B2F3E774E4A3
 [commit]
   gpgsign = true
-#[include]
-#  path = ~/default.gitconfig
-[includeIf "gitdir:~/Projects/presidio/"]
-  path = ~/presidio.gitconfig
-[includeIf "gitdir:~/Projects/technologent/"]
-  path = ~/technologent.gitconfig
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
@@ -31,3 +25,5 @@
   clear = "!git branch — merged | grep -v ‘*’ | xargs -n 1 git branch -d"
 [pull]
 	rebase = true
+[http]
+	sslVerify = false
