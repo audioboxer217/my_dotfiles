@@ -38,14 +38,6 @@ link_check() {
   link_check .gitignore_global
 }
 
-@test "Presidio Git Configlink" {
-  link_check presidio.gitconfig
-}
-
-@test "Technologent Git Config link" {
-  link_check technologent.gitconfig
-}
-
 @test "SSH Config link" {
   link_check .ssh/config
 }
