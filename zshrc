@@ -138,3 +138,7 @@ eval "$(direnv hook zsh)"
 complete -o nospace -C /usr/local/bin/odo odo
 
 complete -o nospace -C /usr/local/bin/vault vault
+
+complete -o nospace -C /usr/local/bin/boundary boundary
+
+eval "$(_MOLECULE_COMPLETE=source molecule)"
