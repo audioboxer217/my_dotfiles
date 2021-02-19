@@ -34,20 +34,20 @@ if [ "${os}" == "Linux" ]; then
   yes | sudo ./fx_install.sh
 
   # Fira Nerd Font
-  fira_url=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("FiraCode"))[0]')
+  fira_url=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("FiraCode"))[0]')
   wget "${fira_url}" -O fira.zip
   unzip fira.zip -d "${HOME}"/.fonts
   fc-cache -fv
   rm fira.zip
 
   # bat
-  bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("amd64.deb"))' '.filter(x => !x.includes("musl"))[0]')
+  bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("amd64.deb"))' '.filter(x => !x.includes("musl"))[0]')
   wget "${bat_url}" -O bat.deb
   sudo dpkg -i bat.deb
   rm bat.deb
 
   # exa
-  exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | fx .assets @.browser_download_url '.filter(x => x.includes("linux"))[0]')
+  exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("linux"))[0]')
   wget "${exa_url}" -O exa.zip
   unzip -p  exa.zip exa-linux-x86_64 > exa
   sudo mv exa /usr/local/bin/exa
