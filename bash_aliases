@@ -32,5 +32,5 @@ alias whatsmyip='curl ifconfig.co'
 
 # MAC OS Only
 if brew_loc="$(type -p brew)"; then
-  alias fresh_brew='git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask" fetch --unshallow && brew update && brew upgrade && brew cleanup && brew doctor'
+  alias fresh_brew='brew update && brew upgrade && brew cleanup && brew doctor'
 fi
