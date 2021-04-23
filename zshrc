@@ -141,3 +141,4 @@ complete -o nospace -C /usr/local/bin/vault vault
 #complete -o nospace -C /usr/local/bin/boundary boundary
 
 # eval "$(_MOLECULE_COMPLETE=source molecule)"
+# . "/Users/scott/.acme.sh/acme.sh.env"
